@@ -1,10 +1,4 @@
-import React from 'react';
-import { AppRegistry, View, Image } from 'react-native';
-import LandingPage from './src/components/LandingPage';
-// import App from './App';
-
-const App = () => (
-	<LandingPage />
-);
+import { AppRegistry } from 'react-native';
+import App from './src/App';
 
 AppRegistry.registerComponent('cafam', () => App);
