@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import {Text, View, Image, StyleSheet } from 'react-native';
+import {Text, View, Image, StyleSheet, ImageBackground } from 'react-native';
+import Button from './Button';
 
-class LandingPage extends Component{
-    render() {
+const LandingPage = (props) => {
     return (
-        <Image
+        <ImageBackground
             source={require('../assets/img/mainBackground.jpg')}
-            style={styles.backgroundImage}
-        />
-           
-    )
-    };   
+            style={styles.backgroundImage}>
+        <View style={{ flex: .6 }}>
+        </View>
+        <View style={{ flex: .4, flexDirection: 'row', justifyContent: 'space-around', backgroundColor: 'white', alignItems: 'flex-start' }}>
+            <Button>
+                Guests
+            </Button>
+            <Button>
+                Docents
+            </Button>
+        </View>
+        </ImageBackground>
+    ) 
 }
 
 const styles = StyleSheet.create({
     backgroundImage: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        flexDirection: 'column',
         width: null,
-        marginTop: 20,
-        resizeMode: 'stretch'
+        height: null,
+        backgroundColor: 'rgb(0, 0, 0)'
     },
     welcome: {
         fontSize: 20,

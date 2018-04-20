@@ -4,9 +4,7 @@ import LandingPage from './src/components/LandingPage';
 // import App from './App';
 
 const App = () => (
-    <View style={{ flex: 1 }}>
-		<LandingPage />
-	</View>
+	<LandingPage />
 );
 
 AppRegistry.registerComponent('cafam', () => App);
