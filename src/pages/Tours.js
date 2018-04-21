@@ -16,16 +16,28 @@ export default class Tours extends Component {
                         <View style={styles.tourBoxTours}>
                             <ScrollView horizontal={true}>
                                 <View style={styles.tour}>
-                                    <View>
+                                    <View style={styles.tourImg}>
+                                        <Image 
+                                            source={require('../assets/img/elementary.jpg')}
+                                            style={styles.img} />
                                     </View>
-                                    <View>
+                                    <View style={styles.tourInfoBox}>
+                                        <Button>
+                                            Start
+                                        </Button>
                                     </View>
                                 </View>
 
                                 <View style={styles.tour}>
-                                    <View>
+                                    <View style={styles.tourImg}>
+                                        <Image 
+                                            source={require('../assets/img/university.jpg')}
+                                            style={styles.img} />
                                     </View>
-                                    <View>
+                                    <View style={styles.tourInfoBox}>
+                                        <Button>
+                                            Start
+                                        </Button>
                                     </View>
                                 </View>
 
@@ -68,8 +80,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: 'red',
-        margin: 2,
-        height: 300
+        margin: 5,
+        height: 350
     },
     tourBoxHeader: {
         flex: .2,
@@ -84,14 +96,25 @@ const styles = StyleSheet.create({
     },
     tour: {
         // flex: 1,
-        width: 300,
+        width: 250,
         backgroundColor: 'white',
-        margin: 2
+        margin: 2,
+        display: 'flex',
+        flexDirection: 'column'
     },
     tourImg: {
+        flex: .7,
+        backgroundColor: 'seagreen'
 
     },
     tourInfoBox: {
-
+        flex: .3,
+        backgroundColor: 'indigo'
+    },
+    img: {
+        flex: 1,
+        height: null,
+        width: null,
+        resizeMode: 'cover'
     }
 })
