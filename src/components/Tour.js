@@ -7,9 +7,14 @@ import {
     ScrollView,
     ImageBackground
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import Button from '../components/Button';
 
 export default class Tour extends Component {
+
+    onTourPress() {
+        Actions.tour();
+    }
 
     render() {
         return (
@@ -30,7 +35,7 @@ export default class Tour extends Component {
                             </ImageBackground>
                         </View>
                         <View style={styles.tourInfoBox}>
-                            <Button>
+                            <Button onPress={this.onTourPress.bind(this)}>
                                 Start
                             </Button>
                         </View>

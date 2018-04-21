@@ -15,7 +15,7 @@ export default class LandingPage extends Component {
             <View style={{ flex: .7 }}>
             </View>
             <View style={{ flex: .3, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'flex-start' }}>
-                <Button onPress={this.onGuestPress.bind()}>
+                <Button onPress={this.onGuestPress.bind(this)}>
                     Guests
                 </Button>
                 <Button>
