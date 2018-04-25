@@ -10,6 +10,7 @@ import {
 
 export default class SlectedTour extends Component {
     render() {
+        console.log(this.props)
         return (
             <View style={styles.selectedTour}>
                 <Image
@@ -27,7 +28,7 @@ export default class SlectedTour extends Component {
                     </View>
                     <View style={styles.audioInfo}>
                         <Text>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam.
+                            {this.props.audioLinkName}
                         </Text>
                     </View>
                 </View>
@@ -36,10 +37,7 @@ export default class SlectedTour extends Component {
                 <ScrollView>
                 <View style={styles.selectedTourTextBox}>
                     <Text style={styles.selectedTourText}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ullam quaerat eos cumque corporis omnis dolorum, voluptates voluptate fugit illum repellendus dolores assumenda repudiandae, at qui, nulla debitis quo voluptas quibusdam. Itaque, sint eos?
-                    </Text>
-                    <Text style={styles.selectedTourText}>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, quia voluptates, id temporibus labore doloremque deserunt earum odio enim libero laborum distinctio eum dolorem similique velit adipisci cupiditate commodi vitae quam praesentium officiis cumque? Dicta error pariatur voluptates provident laudantium?
+                        {this.props.tourText}
                     </Text>
                 </View>
                 </ScrollView>

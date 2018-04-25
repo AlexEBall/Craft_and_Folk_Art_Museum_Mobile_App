@@ -17,7 +17,7 @@ export default class Tour extends Component {
     }
 
     onTourPress() {
-        Actions.tour();
+        Actions.tour({selectedTour: this.props.selectedTour});
     }
 
     render() {
@@ -30,7 +30,7 @@ export default class Tour extends Component {
                         style={styles.img}>
                         <View style={styles.imgTextBox}>
                             <Text style={styles.imgText}>
-                                Elementary
+                                {this.props.selectedTour.coverPic}
                             </Text>
                         </View>
                     </ImageBackground>

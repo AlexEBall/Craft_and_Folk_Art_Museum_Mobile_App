@@ -5,13 +5,15 @@ import SelectedTour from '../components/SelectedTour';
 
 export default class Tour extends Component {
     render() {
-        console.log(this.onTourPress);
+        console.log(this.props.selectedTour);
         return (
              <View style={styles.container}>
 
                 <View style={styles.tourContainer}>
 
-                    <SelectedTour />
+                    <SelectedTour
+                    tourText={this.props.selectedTour.floorText}
+                    audioLinkName={this.props.selectedTour.audioLink} />
 
                 </View>
 
