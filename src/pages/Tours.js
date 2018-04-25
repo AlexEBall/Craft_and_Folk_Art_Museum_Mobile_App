@@ -3,26 +3,36 @@ import {connect} from 'react-redux';
 import {fetchTourData} from '../actions';
 import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import TourBox from '../components/TourBox';
+import Spinner from '../components/Spinner';
 
 class Tours extends Component {
     componentWillMount = () => {
         this.props.fetchTourData();
     }
-    render() {
+
+    renderTourBox = () => {
         let tours = this.props.data;
 
         if (!tours) {
-            
+            return <Spinner />
+        } else {
+        
+        return tours.map(tour => 
+            <TourBox key={tour._id} tour={tour} />
+        );
+
         }
+    }
+
+    render() {
+
         return (
             <View style={styles.container}>
                 <View style={styles.headerFixed}>
                 </View>
                 <View style={styles.toursContainer}>
                     <ScrollView>
-                        <TourBox />
-                        <TourBox />
-                        <TourBox />
+                        {this.renderTourBox()}
                     </ScrollView>
                 </View>
             </View>

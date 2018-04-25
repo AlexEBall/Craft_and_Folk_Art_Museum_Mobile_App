@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         flex: .8,
         backgroundColor: 'blue',
         display: 'flex',
-        flexDirection: 'row'
+        // flexDirection: 'row'
     },
     tour: {
         // flex: 1,

@@ -15,16 +15,20 @@ export default class TourBox extends Component {
 
     // mount api with tour obj pass in data obj as properties
     // render tourbox function that maps api above and passes here
-    renderTourBox() {
-        
+    renderTours() {
+        return this.props.tour.floors.map(selectedTour => 
+            <Tour key={this.props.tour._id} floors={selectedTour.floors}/>
+        );
     }
 
     render() {
+        console.log(this.props.tour)
+        // const currentTour = thi
         return (
             <View style={styles.tourBox}>
                 <TourBoxHeader
-                title='K-12' />
-                <Tour />
+                title={this.props.tour.tourAudience} />
+                {this.renderTours()}
             </View>
         );
     }
