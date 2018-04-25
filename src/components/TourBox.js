@@ -13,11 +13,9 @@ import Button from '../components/Button';
 
 export default class TourBox extends Component {
 
-    // mount api with tour obj pass in data obj as properties
-    // render tourbox function that maps api above and passes here
-    renderTours() {
+    renderTour = () => {
         return this.props.tour.floors.map(selectedTour => 
-            <Tour key={this.props.tour._id} floors={selectedTour.floors}/>
+            <Tour key={selectedTour.floor} selectedTour={selectedTour} />
         );
     }
 
@@ -28,7 +26,11 @@ export default class TourBox extends Component {
             <View style={styles.tourBox}>
                 <TourBoxHeader
                 title={this.props.tour.tourAudience} />
-                {this.renderTours()}
+                <View style={styles.tourBoxTours}>
+                    <ScrollView horizontal={true}>
+                        {this.renderTour()}
+                    </ScrollView>
+                </View>
             </View>
         );
     }
@@ -42,5 +44,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'red',
         margin: 5,
         height: 350
+    },
+    tourBoxTours: {
+        flex: .8,
+        backgroundColor: 'blue',
+        display: 'flex',
+        flexDirection: 'row'
     }
 })

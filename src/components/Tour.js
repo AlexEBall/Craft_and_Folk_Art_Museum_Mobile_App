@@ -21,40 +21,37 @@ export default class Tour extends Component {
     }
 
     render() {
+        // console.log(this.props.seledtedTour);
         return (
-            <View style={styles.tourBoxTours}>
-                <ScrollView horizontal={true}>
-                    <View style={styles.tour}>
-                        <View style={styles.tourImg}>
-                            <ImageBackground 
-                                source={require('../assets/img/elementary.jpg')}
-                                style={styles.img}>
-                                <View style={styles.imgTextBox}>
-                                    <Text style={styles.imgText}>
-                                        Elementary
-                                    </Text>
-                                </View>
-                            </ImageBackground>
+            <View style={styles.tour}>
+                <View style={styles.tourImg}>
+                    <ImageBackground 
+                        source={require('../assets/img/elementary.jpg')}
+                        style={styles.img}>
+                        <View style={styles.imgTextBox}>
+                            <Text style={styles.imgText}>
+                                Elementary
+                            </Text>
                         </View>
-                        <View style={styles.tourInfoBox}>
-                            <Button onPress={this.onTourPress.bind(this)}>
-                                Start
-                            </Button>
-                        </View>
-                    </View>
-                </ScrollView>
+                    </ImageBackground>
+                </View>
+                <View style={styles.tourInfoBox}>
+                    <Button onPress={this.onTourPress.bind(this)}>
+                        Start
+                    </Button>
+                </View>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    tourBoxTours: {
-        flex: .8,
-        backgroundColor: 'blue',
-        display: 'flex',
-        // flexDirection: 'row'
-    },
+    // tourBoxTours: {
+    //     flex: .8,
+    //     backgroundColor: 'blue',
+    //     display: 'flex',
+    //     flexDirection: 'row'
+    // },
     tour: {
         // flex: 1,
         width: 250,
