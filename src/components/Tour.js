@@ -12,6 +12,10 @@ import Button from '../components/Button';
 
 export default class Tour extends Component {
 
+    renderTours() {
+
+    }
+
     onTourPress() {
         Actions.tour();
     }
@@ -20,8 +24,6 @@ export default class Tour extends Component {
         return (
             <View style={styles.tourBoxTours}>
                 <ScrollView horizontal={true}>
-
-
                     <View style={styles.tour}>
                         <View style={styles.tourImg}>
                             <ImageBackground 
@@ -40,8 +42,6 @@ export default class Tour extends Component {
                             </Button>
                         </View>
                     </View>
-
-
                 </ScrollView>
             </View>
         );

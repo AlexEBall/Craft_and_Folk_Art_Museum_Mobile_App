@@ -15,6 +15,9 @@ export default class TourBox extends Component {
 
     // mount api with tour obj pass in data obj as properties
     // render tourbox function that maps api above and passes here
+    renderTourBox() {
+        
+    }
 
     render() {
         return (
