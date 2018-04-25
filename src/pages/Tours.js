@@ -1,9 +1,19 @@
 import React, {Component} from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import {connect} from 'react-redux';
+import {fetchTourData} from '../actions';
+import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import TourBox from '../components/TourBox';
 
-export default class Tours extends Component {
+class Tours extends Component {
+    componentWillMount = () => {
+        this.props.fetchTourData();
+    }
     render() {
+        let tours = this.props.data;
+
+        if (!tours) {
+            
+        }
         return (
             <View style={styles.container}>
                 <View style={styles.headerFixed}>
@@ -34,4 +44,15 @@ const styles = StyleSheet.create({
         flex: .9,
         backgroundColor: 'grey'
     }
-})
+});
+
+const mapStateToProps = state => {
+    return {
+        fetching: state.data.fetching,
+        fetched: state.data.fetched,
+        error: state.data.error,
+        data: state.data.data
+    }
+}
+
+export default connect(mapStateToProps, { fetchTourData })(Tours);
