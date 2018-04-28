@@ -11,16 +11,16 @@ class SelectedTour extends Component {
         console.log(audio);
 
         // audio.prepare(err => console.log(err));
-        // audio.prepare((err) => {
-        //     if (err) return this.props.error(err);
+        audio.prepare((err) => {
+            if (err) return this.props.error(err);
 
-        //     let seconds = this.player.duration/1000;
-        //     this.props.audioTime(seconds);
-        // });
+            let seconds = this.player.duration/1000;
+            this.props.audioTime(seconds);
+        });
 
-        // audio.play(() => {
-        //     this.props.audioPlaying();
-        // })
+        audio.play(() => {
+            this.props.audioPlaying();
+        });
     }
 
     render() {
