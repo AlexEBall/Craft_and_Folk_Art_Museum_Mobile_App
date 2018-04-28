@@ -18,9 +18,9 @@ class SelectedTour extends Component {
         //     this.props.audioTime(seconds);
         // });
 
-        audio.play(() => {
-            this.props.audioPlaying();
-        })
+        // audio.play(() => {
+        //     this.props.audioPlaying();
+        // })
     }
 
     render() {
