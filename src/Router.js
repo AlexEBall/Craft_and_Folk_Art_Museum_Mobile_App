@@ -12,7 +12,7 @@ const RouterComponent = () => {
                 <Scene key="root" hideNavBar>
                     <Scene key="homepage" component={LandingPage} />
                     <Scene key="tours" component={Tours} />
-                    <Scene key="tour" component={Tour} hideNavBar={false} title={'Tour #1'} 
+                    <Scene key="tour" component={Tour} hideNavBar={false} title={'CAFAM Tours'} 
                             navigationBarStyle={{ backgroundColor: 'orange' }}/>
                 </Scene>
             </Lightbox>

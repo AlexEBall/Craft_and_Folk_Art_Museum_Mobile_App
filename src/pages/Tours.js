@@ -12,8 +12,11 @@ class Tours extends Component {
 
     renderTourBox = () => {
         let tours = this.props.data;
+        let spin = this.props.fetching
 
-        if (!tours) {
+        console.log(spin);
+        // spinner on images if passing smaller images doesn't work
+        if (spin === true) {
             return <Spinner />
         } else {
         
@@ -28,8 +31,7 @@ class Tours extends Component {
 
         return (
             <View style={styles.container}>
-                <View style={styles.headerFixed}>
-                </View>
+                <View style={styles.headerFixed} /> 
                 <View style={styles.toursContainer}>
                     <ScrollView>
                         {this.renderTourBox()}
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
     },
     toursContainer: {
         flex: .9,
-        backgroundColor: 'grey'
+        backgroundColor: 'grey',
     }
 });
 

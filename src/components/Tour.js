@@ -22,15 +22,17 @@ export default class Tour extends Component {
 
     render() {
         // console.log(this.props.seledtedTour);
+        const coverImage = this.props.selectedTour.coverPic;
+
         return (
             <View style={styles.tour}>
                 <View style={styles.tourImg}>
                     <ImageBackground 
-                        source={require('../assets/img/elementary.jpg')}
+                        source={{ uri: coverImage }}
                         style={styles.img}>
                         <View style={styles.imgTextBox}>
                             <Text style={styles.imgText}>
-                                {this.props.selectedTour.coverPic}
+                                Floor {this.props.selectedTour.floor}
                             </Text>
                         </View>
                     </ImageBackground>

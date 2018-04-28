@@ -37,8 +37,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     tourBoxHeaderTitle: {
-        flexBasis: '20%',
-        alignItems: 'center',
+        flexBasis: '40%',
+        paddingLeft: 10,
+        alignItems: 'flex-start',
         justifyContent: 'center'
     },
     tourBoxHeaderTitleText: {
