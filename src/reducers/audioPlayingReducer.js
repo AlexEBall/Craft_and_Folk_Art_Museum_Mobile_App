@@ -10,6 +10,8 @@ export default (state=INITIAL_STATE, action) => {
     switch(action.type) {
         case AUDIO_PLAYING: 
             return {...state, isPlaying: action.payload }
+        case AUDIO_TIME: 
+            return {...state, totalTime: action.payload }
         case AUDIO_ERROR: 
             return {...state, error: action.payload }
         default:
