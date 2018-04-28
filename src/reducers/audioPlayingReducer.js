@@ -1,4 +1,4 @@
-import {AUDIO_PLAYING, AUDIO_ERROR} from '../actions/types';
+import {AUDIO_PLAYING, AUDIO_TIME, AUDIO_ERROR} from '../actions/types';
 
 const INITIAL_STATE = {
     totalTime: 0,

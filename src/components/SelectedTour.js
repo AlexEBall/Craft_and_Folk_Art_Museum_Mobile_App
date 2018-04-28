@@ -7,16 +7,18 @@ import {Player, MediaStates} from 'react-native-audio-toolkit';
 class SelectedTour extends Component {
     audioBtnPressed = () => {
         console.log('pressed');
-        this.player = new Player('https://ia801407.us.archive.org/3/items/FranklynMonkPodcast27/TourGuide.mp3');
+        let audio = new Player('https://ia801407.us.archive.org/3/items/FranklynMonkPodcast27/TourGuide.mp3');
+        console.log(audio);
 
-        this.player.prepare((err) => {
-            if (err) return this.props.error(err);
+        // audio.prepare(err => console.log(err));
+        // audio.prepare((err) => {
+        //     if (err) return this.props.error(err);
 
-            let seconds = this.player.duration/1000;
-            this.props.audioTime(seconds);
-        });
+        //     let seconds = this.player.duration/1000;
+        //     this.props.audioTime(seconds);
+        // });
 
-        this.player.play(() => {
+        audio.play(() => {
             this.props.audioPlaying();
         })
     }
