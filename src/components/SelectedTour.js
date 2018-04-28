@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
-import {
-    Text,
-    View,
-    Image,
-    StyleSheet,
-    ScrollView,
-    TouchableOpacity
-} from 'react-native';
+import {Text, View, Image, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
+import {connect} from 'react-redux';
+import {audioPlaying} from '../actions';
+import {Player, MediaStates} from 'react-native-audio-toolkit';
 
-export default class SlectedTour extends Component {
+class SelectedTour extends Component {
+    audioBtnPressed = () => {
+        console.log('pressed');
+        this.props.audioPlaying();
+    }
+
     render() {
+        this.player = new Player('https://ia801407.us.archive.org/3/items/FranklynMonkPodcast27/TourGuide.mp3');
         console.log(this.props)
         return (
             <View style={styles.selectedTour}>
@@ -20,7 +22,7 @@ export default class SlectedTour extends Component {
 
                 <View style={styles.selectedTourAudioInfoBox}>
                     <View style={styles.audioBtnBox}>
-                        <TouchableOpacity style={styles.audioBtn}>
+                        <TouchableOpacity style={styles.audioBtn} onPress={this.audioBtnPressed.bind(this)}>
                             <Image 
                                 style={styles.audioImg}
                                 source={require('../assets/img/audioPlay.png')} />
@@ -115,3 +117,13 @@ const styles = StyleSheet.create({
         padding: 10
     }
 });
+
+const mapStateToProps = state => {
+    return {
+        totalTime: state.audio.totalTime,
+        isPlaying: state.audio.isPlaying,
+        error: state.audio.error
+    }
+}
+
+export default connect(mapStateToProps, { audioPlaying })(SelectedTour);
