@@ -6,6 +6,8 @@ import {Player, MediaStates} from 'react-native-audio-toolkit';
 
 class SelectedTour extends Component {
     audioBtnPressed = () => {
+        // if statement for play/pause btn functionality use isPlaying
+        // need to set a spinner to allow for loading
         console.log('pressed');
         let audio = new Player('https://ia801407.us.archive.org/3/items/FranklynMonkPodcast27/TourGuide.mp3');
         console.log(audio);
@@ -14,7 +16,7 @@ class SelectedTour extends Component {
         audio.prepare((err) => {
             if (err) return this.props.error(err);
 
-            let seconds = this.player.duration/1000;
+            let seconds = audio.duration/1000;
             this.props.audioTime(seconds);
         });
 
