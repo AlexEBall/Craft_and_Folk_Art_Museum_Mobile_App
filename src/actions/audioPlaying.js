@@ -1,4 +1,4 @@
-import {AUDIO_PLAYING, AUDIO_TIME, AUDIO_ERROR} from './types';
+import {AUDIO_PLAYING, AUDIO_TIME, AUDIO_ERROR, AUDIO_PAUSE} from './types';
 
 export const audioPlaying = () => {
     return {
@@ -18,5 +18,12 @@ export const audioError = (err) => {
     return {
         type: 'audio_error',
         payload: err
+    }
+}
+
+export const audioPause = () => {
+    return {
+        type: 'audio_paused',
+        palyod: false
     }
 }

@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import {Text, View, Image, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
-import {audioPlaying, audioTime, audioError} from '../actions';
+import {audioPlaying, audioTime, audioError, audioPause} from '../actions';
 import {Player, MediaStates} from 'react-native-audio-toolkit';
 
 class SelectedTour extends Component {
+
+    // define audio through api two calls
+    
     audioBtnPressed = () => {
         // if statement for play/pause btn functionality use isPlaying
         // need to set a spinner to allow for loading
@@ -19,10 +22,33 @@ class SelectedTour extends Component {
             let seconds = audio.duration/1000;
             this.props.audioTime(seconds);
         });
+        
+        if (this.props.isPlaying === false) {
+            audio.play(() => {
+                return this.props.audioPlaying();
+            });
+        } else {
+            audio.pause(() => {
+                return this.props.audioPause();
+            })
+        }
 
-        audio.play(() => {
-            this.props.audioPlaying();
-        });
+    }
+
+    audioToggle = () => {
+        if (this.props.isPlaying === false) {
+            return (
+                <TouchableOpacity style={styles.audioBtn} onPress={this.audioBtnPressed.bind(this)}>
+                    <Image style={styles.audioImg} source={require('../assets/img/audioPlay.png')} />
+                </TouchableOpacity>
+            );
+        } else {
+            return (
+                <TouchableOpacity style={styles.audioBtn} onPress={this.audioBtnPressed.bind(this)}>
+                    <Image style={styles.audioImg} source={require('../assets/img/audioPause.png')} />
+                </TouchableOpacity>
+            );
+        }
     }
 
     render() {
@@ -36,11 +62,7 @@ class SelectedTour extends Component {
 
                 <View style={styles.selectedTourAudioInfoBox}>
                     <View style={styles.audioBtnBox}>
-                        <TouchableOpacity style={styles.audioBtn} onPress={this.audioBtnPressed.bind(this)}>
-                            <Image 
-                                style={styles.audioImg}
-                                source={require('../assets/img/audioPlay.png')} />
-                        </TouchableOpacity>
+                        {this.audioToggle()}
                     </View>
                     <View style={styles.audioInfo}>
                         <Text>
@@ -113,6 +135,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+    // audioImgPause: {
+    //     padding: 10,
+    //     borderRadius: 50,
+    //     height: 40,
+    //     width: 40,
+    //     display: 'flex',
+    //     alignItems: 'center',
+    //     justifyContent: 'center'
+    // },
     audioInfo: {
         flex: .8,
         backgroundColor: 'tan',
@@ -140,4 +171,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { audioPlaying, audioTime, audioError })(SelectedTour);
+export default connect(mapStateToProps, { audioPlaying, audioTime, audioError, audioPause })(SelectedTour);
