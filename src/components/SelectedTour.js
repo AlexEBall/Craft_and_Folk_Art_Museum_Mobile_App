@@ -5,54 +5,90 @@ import {audioPlaying, audioTime, audioError, audioPause} from '../actions';
 import {Player, MediaStates} from 'react-native-audio-toolkit';
 
 class SelectedTour extends Component {
-
-    // define audio through api two calls
     
-    audioBtnPressed = () => {
+    audioPlayAndPause() {
         // if statement for play/pause btn functionality use isPlaying
         // need to set a spinner to allow for loading
         console.log('pressed');
-        let audio = new Player('https://ia801407.us.archive.org/3/items/FranklynMonkPodcast27/TourGuide.mp3');
-        console.log(audio);
+        const audio = new Player(this.props.audioLinkName);
+        // console.log(audio);
 
         // audio.prepare(err => console.log(err));
-        audio.prepare((err) => {
-            if (err) return this.props.error(err);
+        if (audio.isPlaying === false) {
+            audio.prepare((err) => {
+                if (err) return this.props.error(err);
 
-            let seconds = audio.duration/1000;
-            this.props.audioTime(seconds);
-        });
-        
-        if (this.props.isPlaying === false) {
-            audio.play(() => {
-                return this.props.audioPlaying();
+                let seconds = audio.duration/1000;
+                this.props.audioTime(seconds);
+                // this.props.audioPlaying();
             });
+
+            
+            audio.play();
+            console.log(audio.isPlaying);
         } else {
-            audio.pause(() => {
-                return this.props.audioPause();
-            })
+            
+            audio.pause();
+            // this.props.audioPause();
         }
 
+        // audio.play(() => {
+        //     this.props.audioPlaying();
+        // })
+
+        // audio.pause(() => {
+        //     return this.props.audioPause();
+        // })
     }
 
-    audioToggle = () => {
-        if (this.props.isPlaying === false) {
+    // audioPause() {
+    //     audio.pause(() => {
+    //         this.props.audioPause();
+    //     })
+    // }
+
+    audioToggle() {
+
+        const audio = new Player(this.props.audioLinkName);
+
+        // let audio = new Player(this.props.audioLinkName);
+
+        if (this.props.isPlaying === true) {
             return (
-                <TouchableOpacity style={styles.audioBtn} onPress={this.audioBtnPressed.bind(this)}>
-                    <Image style={styles.audioImg} source={require('../assets/img/audioPlay.png')} />
+                <TouchableOpacity style={styles.audioBtn} onPress={() => {
+                        console.log('paused')
+                        this.props.audioPlaying(false);
+                        console.log(audio.canStop);
+                        audio.pause(this._playerId);
+                    }
+                }>
+                    <Image style={styles.audioImg} source={require('../assets/img/audioPause.png')} />
                 </TouchableOpacity>
             );
         } else {
             return (
-                <TouchableOpacity style={styles.audioBtn} onPress={this.audioBtnPressed.bind(this)}>
-                    <Image style={styles.audioImg} source={require('../assets/img/audioPause.png')} />
+                <TouchableOpacity style={styles.audioBtn} onPress={() => {
+                        console.log('pressed');
+                        audio.prepare((err) => {
+                            if (err) return this.props.error(err);
+
+                            let seconds = audio.duration/1000;
+                            this.props.audioTime(seconds);
+                        });
+                        audio.play();
+                        this.props.audioPlaying(true);
+                        console.log(audio.isPlaying);
+                        console.log(audio._playerId);
+                    }
+                }>
+                    <Image style={styles.audioImg} source={require('../assets/img/audioPlay.png')} />
                 </TouchableOpacity>
             );
         }
     }
 
     render() {
-        console.log(this.props)
+        console.log(this.props);
         return (
             <View style={styles.selectedTour}>
                 <Image
