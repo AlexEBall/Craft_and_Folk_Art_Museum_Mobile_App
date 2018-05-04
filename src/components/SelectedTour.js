@@ -3,83 +3,106 @@ import {Text, View, Image, StyleSheet, ScrollView, TouchableOpacity} from 'react
 import {connect} from 'react-redux';
 import {audioPlaying, audioTime, audioError, audioPause} from '../actions';
 import {Player, MediaStates} from 'react-native-audio-toolkit';
+import Sound from 'react-native-sound';
 
 class SelectedTour extends Component {
-    
-    audioPlayAndPause() {
-        // if statement for play/pause btn functionality use isPlaying
-        // need to set a spinner to allow for loading
+
+    // let audio = new Player(this.props.audioLinkName);
+    _audioPlay = (sound) => {
         console.log('pressed');
-        const audio = new Player(this.props.audioLinkName);
+        console.log(sound);
+
+        // sound.play((success) => {
+        //     if (success) { 
+        //         console.log('successfully played');
+        //     } else {
+        //         console.log('playback failed');
+        //         sound.reset();
+        //     }
+        // })
+        // audio.prepare((err) => {
+        //     if (err) return this.props.error(err);
+
+        //     let seconds = audio.duration/1000;
+        //     this.props.audioTime(seconds);
+        // });
+
+        // audio.play();
+
+        // this.props.audioPlaying(true);
+
+
+        // console.log('----------------------');
         // console.log(audio);
-
-        // audio.prepare(err => console.log(err));
-        if (audio.isPlaying === false) {
-            audio.prepare((err) => {
-                if (err) return this.props.error(err);
-
-                let seconds = audio.duration/1000;
-                this.props.audioTime(seconds);
-                // this.props.audioPlaying();
-            });
-
-            
-            audio.play();
-            console.log(audio.isPlaying);
-        } else {
-            
-            audio.pause();
-            // this.props.audioPause();
-        }
-
-        // audio.play(() => {
-        //     this.props.audioPlaying();
-        // })
-
-        // audio.pause(() => {
-        //     return this.props.audioPause();
-        // })
+        // console.log(audio.isPlaying);
+        // console.log(audio._playerId);
     }
 
-    // audioPause() {
-    //     audio.pause(() => {
-    //         this.props.audioPause();
-    //     })
-    // }
+    _audioPause = (sound) => {
+        console.log('paused')
+        // this.props.audioPlaying(false);
 
-    audioToggle() {
+        // console.log('Why is this a second audio? ', audio);
 
-        const audio = new Player(this.props.audioLinkName);
+        // console.log(audio.isPlaying);
+        // if (!audio) {
+        //     audio.destroy();
+        // } else {
+        //     audio.pause();
+        // }
+    }
 
-        // let audio = new Player(this.props.audioLinkName);
+    audioToggle = () => {
+        const sound = new Sound(this.props.audioLinkName, null, (error) => {
+            if (error) { 
+                console.log(error);
+            } else {
+                sound.play();
+            }});
 
         if (this.props.isPlaying === true) {
             return (
-                <TouchableOpacity style={styles.audioBtn} onPress={() => {
-                        console.log('paused')
-                        this.props.audioPlaying(false);
-                        console.log(audio.canStop);
-                        audio.pause(this._playerId);
-                    }
+                <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioPause(sound)
+                    // {
+                        //console.log('paused')
+                        //this.props.audioPlaying(false);
+
+                        //console.log('Why is this a second audio? ', audio);
+
+                        //console.log(audio.isPlaying);
+                        //if (audio.isPlaying === false) {
+                          //  audio.destroy();
+                        //} else {
+                          //  audio.pause();
+                        //}
+                   // }
                 }>
                     <Image style={styles.audioImg} source={require('../assets/img/audioPause.png')} />
                 </TouchableOpacity>
             );
         } else {
             return (
-                <TouchableOpacity style={styles.audioBtn} onPress={() => {
-                        console.log('pressed');
-                        audio.prepare((err) => {
-                            if (err) return this.props.error(err);
+                <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioPlay(sound)
+                    // {
+                      //  console.log('pressed');
 
-                            let seconds = audio.duration/1000;
-                            this.props.audioTime(seconds);
-                        });
-                        audio.play();
-                        this.props.audioPlaying(true);
-                        console.log(audio.isPlaying);
-                        console.log(audio._playerId);
-                    }
+                        //audio.prepare((err) => {
+                          //  if (err) return this.props.error(err);
+
+                            //let seconds = audio.duration/1000;
+                           // this.props.audioTime(seconds);
+                        //});
+
+                        //audio.play();
+
+                        //this.props.audioPlaying(true);
+
+
+                       // console.log('----------------------');
+                        //console.log(audio);
+                        //console.log(audio.isPlaying);
+                        //console.log(audio._playerId);
+                    //}
                 }>
                     <Image style={styles.audioImg} source={require('../assets/img/audioPlay.png')} />
                 </TouchableOpacity>
@@ -89,6 +112,8 @@ class SelectedTour extends Component {
 
     render() {
         console.log(this.props);
+    
+        // const audio = new Player(this.props.audioLinkName, { autoDestroy: true, continuesToPlayInBackground: true });
         return (
             <View style={styles.selectedTour}>
                 <Image
