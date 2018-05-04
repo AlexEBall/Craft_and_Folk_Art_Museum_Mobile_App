@@ -16,15 +16,25 @@ class SelectedTour extends Component {
             console.log('on end');
         });
 
+        // let time = 0;
+
         AudioPlayer.prepare(url, () => {
             this.props.audioPlaying(true);
             AudioPlayer.play();
+            // AudioPlayer.getDuration(time);
+            // AudioPlayer.getCurrentTime((currentTime) => {
+            //     console.log(currentTime);
+            // });
+            AudioPlayer.getDuration((duration) => {
+                this.props.audioTime(duration);
+                console.log(duration);
+            });
         });
 
         // AudioPlayer.getDuration((duration) => {
         //     // this.props.audioTime(duration);
         //     console.log(duration);
-        // })
+        // });
         // sound.play((success) => {
         //     if (success) { 
         //         console.log('successfully played');
