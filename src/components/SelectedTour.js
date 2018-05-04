@@ -20,6 +20,11 @@ class SelectedTour extends Component {
             this.props.audioPlaying(true);
             AudioPlayer.play();
         });
+
+        // AudioPlayer.getDuration((duration) => {
+        //     // this.props.audioTime(duration);
+        //     console.log(duration);
+        // })
         // sound.play((success) => {
         //     if (success) { 
         //         console.log('successfully played');
@@ -48,7 +53,9 @@ class SelectedTour extends Component {
 
     _audioPause = (url) => {
         console.log('paused')
-        // this.props.audioPlaying(false);
+        this.props.audioPlaying(false);
+
+        AudioPlayer.pause();
 
         // console.log('Why is this a second audio? ', audio);
 
