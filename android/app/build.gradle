@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-play-audio')
     compile project(':react-native-sound')
     compile project(':react-native-audio-streamer')
     compile project(':react-native-audio-toolkit')

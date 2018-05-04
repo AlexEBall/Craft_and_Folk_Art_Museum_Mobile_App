@@ -2,16 +2,24 @@ import React, {Component} from 'react';
 import {Text, View, Image, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {audioPlaying, audioTime, audioError, audioPause} from '../actions';
-import {Player, MediaStates} from 'react-native-audio-toolkit';
-import Sound from 'react-native-sound';
+// import {Player, MediaStates} from 'react-native-audio-toolkit';
+// import Sound from 'react-native-sound';
+import AudioPlayer from 'react-native-play-audio';
 
 class SelectedTour extends Component {
 
     // let audio = new Player(this.props.audioLinkName);
-    _audioPlay = (sound) => {
+    _audioPlay = (url) => {
         console.log('pressed');
-        console.log(sound);
 
+        AudioPlayer.onEnd(() => {
+            console.log('on end');
+        });
+
+        AudioPlayer.prepare(url, () => {
+            this.props.audioPlaying(true);
+            AudioPlayer.play();
+        });
         // sound.play((success) => {
         //     if (success) { 
         //         console.log('successfully played');
@@ -38,7 +46,7 @@ class SelectedTour extends Component {
         // console.log(audio._playerId);
     }
 
-    _audioPause = (sound) => {
+    _audioPause = (url) => {
         console.log('paused')
         // this.props.audioPlaying(false);
 
@@ -52,17 +60,11 @@ class SelectedTour extends Component {
         // }
     }
 
-    audioToggle = () => {
-        const sound = new Sound(this.props.audioLinkName, null, (error) => {
-            if (error) { 
-                console.log(error);
-            } else {
-                sound.play();
-            }});
+    audioToggle = (url) => {
 
         if (this.props.isPlaying === true) {
             return (
-                <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioPause(sound)
+                <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioPause(url)
                     // {
                         //console.log('paused')
                         //this.props.audioPlaying(false);
@@ -82,7 +84,7 @@ class SelectedTour extends Component {
             );
         } else {
             return (
-                <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioPlay(sound)
+                <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioPlay(url)
                     // {
                       //  console.log('pressed');
 
@@ -112,7 +114,12 @@ class SelectedTour extends Component {
 
     render() {
         console.log(this.props);
+
+        console.log('-----------');
+        console.log(AudioPlayer);
     
+        const url = this.props.audioLinkName;
+        // console.log(sound);
         // const audio = new Player(this.props.audioLinkName, { autoDestroy: true, continuesToPlayInBackground: true });
         return (
             <View style={styles.selectedTour}>
@@ -123,7 +130,7 @@ class SelectedTour extends Component {
 
                 <View style={styles.selectedTourAudioInfoBox}>
                     <View style={styles.audioBtnBox}>
-                        {this.audioToggle()}
+                        {this.audioToggle(url)}
                     </View>
                     <View style={styles.audioInfo}>
                         <Text>

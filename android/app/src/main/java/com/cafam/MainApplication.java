@@ -3,6 +3,7 @@ package com.cafam;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.RNPlayAudio.RNPlayAudioPackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import fm.indiecast.rnaudiostreamer.RNAudioStreamerPackage;
 // import com.audioStreaming.ReactNativeAudioStreamingPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new RNPlayAudioPackage(),
             new RNSoundPackage(),
             // new RNAudioStreamerPackage(),
             // new ReactNativeAudioStreamingPackage(),
