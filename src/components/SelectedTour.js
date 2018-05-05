@@ -12,7 +12,7 @@ import {
     audioTime, 
     audioError, 
     audioPaused,
-    audioCurrentTime
+    audioSetTime
 } from '../actions';
 // import {Player, MediaStates} from 'react-native-audio-toolkit';
 // import Sound from 'react-native-sound';
@@ -24,12 +24,12 @@ class SelectedTour extends Component {
     _audioPlay = (url) => {
         console.log('pressed');
 
-        setInterval(() => {
-            AudioPlayer.getCurrentTime((currentTime) => {
-            console.log('current time::::: is :::: ', currentTime);
-            this.props.audioCurrentTime(currentTime);
-            });
-        }, 1000);
+        // setInterval(() => {
+        //     AudioPlayer.getCurrentTime((currentTime) => {
+        //     console.log('current time::::: is :::: ', currentTime);
+        //     this.props.audioCurrentTime(currentTime);
+        //     });
+        // }, 1000);
 
         if (this.props.isPlaying === false && this.props.isPaused === false) {
         AudioPlayer.prepare(url, () => {
@@ -54,8 +54,20 @@ class SelectedTour extends Component {
         AudioPlayer.pause();
     }
 
-    _audioForward = () => {
+    _audioForward = (url) => {
+        console.log('forward');
 
+        const currentTime = AudioPlayer.getCurrentTime((currentTime) => {
+            console.log('current time::::: is :::: ', currentTime);
+            // this.props.audioSetTime(currentTime);
+
+            const forwardedTime = (currentTime + 10);
+            console.log('forwarded time is :::::: ', forwardedTime);
+
+            this.props.audioSetTime(forwardedTime);
+
+            AudioPlayer.setTime(this.props.setTime);
+        });
     }
 
     audioToggle = (url) => {
@@ -100,7 +112,7 @@ class SelectedTour extends Component {
                         {this.audioToggle(url)}
                     </View>
                     <View style={styles.audioBtnBoxForward}>
-                        <TouchableOpacity style={styles.audioBtn}>
+                        <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioForward(url)}>
                             <Image style={styles.audioImg} source={require('../assets/img/10sec_forward-128.png')} />
                         </TouchableOpacity>
                     </View>
@@ -220,7 +232,7 @@ const mapStateToProps = state => {
         totalTime: state.audio.totalTime,
         isPlaying: state.audio.isPlaying,
         isPaused: state.audio.isPaused,
-        currentTime: state.audio.currentTime,
+        setTime: state.audio.setTime,
         error: state.audio.error
     }
 }
@@ -230,5 +242,5 @@ export default connect(mapStateToProps, {
     audioTime, 
     audioError, 
     audioPaused,
-    audioCurrentTime 
+    audioSetTime 
 })(SelectedTour);
