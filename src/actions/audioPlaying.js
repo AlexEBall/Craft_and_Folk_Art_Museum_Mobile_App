@@ -25,6 +25,6 @@ export const audioPaused = (value) => {
     console.log('passed in value is... ', value);
     return {
         type: 'audio_pause',
-        palyod: value
+        payload: value
     }
 }
