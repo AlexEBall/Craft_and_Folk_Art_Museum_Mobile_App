@@ -12,6 +12,12 @@ class SelectedTour extends Component {
     _audioPlay = (url) => {
         console.log('pressed');
 
+        setInterval(() => {
+            AudioPlayer.getCurrentTime((currentTime) => {
+            console.log('current time::::: is :::: ', currentTime);
+            });
+        }, 1000);
+
         if (this.props.isPlaying === false && this.props.isPaused === false) {
         AudioPlayer.prepare(url, () => {
             this.props.audioPlaying(true);
