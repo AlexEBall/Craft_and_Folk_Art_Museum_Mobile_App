@@ -1,7 +1,19 @@
 import React, {Component} from 'react';
-import {Text, View, Image, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
+import {
+    Text, 
+    View, 
+    Image, 
+    StyleSheet, 
+    ScrollView, 
+    TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
-import {audioPlaying, audioTime, audioError, audioPaused} from '../actions';
+import {
+    audioPlaying, 
+    audioTime, 
+    audioError, 
+    audioPaused,
+    audioCurrentTime
+} from '../actions';
 // import {Player, MediaStates} from 'react-native-audio-toolkit';
 // import Sound from 'react-native-sound';
 import AudioPlayer from 'react-native-play-audio';
@@ -15,6 +27,7 @@ class SelectedTour extends Component {
         setInterval(() => {
             AudioPlayer.getCurrentTime((currentTime) => {
             console.log('current time::::: is :::: ', currentTime);
+            this.props.audioCurrentTime(currentTime);
             });
         }, 1000);
 
@@ -39,6 +52,10 @@ class SelectedTour extends Component {
         this.props.audioPlaying(false);
         this.props.audioPaused(true);
         AudioPlayer.pause();
+    }
+
+    _audioForward = () => {
+
     }
 
     audioToggle = (url) => {
@@ -74,13 +91,18 @@ class SelectedTour extends Component {
 
 
                 <View style={styles.selectedTourAudioInfoBox}>
+                    <View style={styles.audioBtnBoxRewind}>
+                        <TouchableOpacity style={styles.audioBtn}>
+                            <Image style={styles.audioImg} source={require('../assets/img/10sec_backward-256.png')} />
+                        </TouchableOpacity>
+                    </View>
                     <View style={styles.audioBtnBox}>
                         {this.audioToggle(url)}
                     </View>
-                    <View style={styles.audioInfo}>
-                        <Text>
-                            {this.props.audioLinkName}
-                        </Text>
+                    <View style={styles.audioBtnBoxForward}>
+                        <TouchableOpacity style={styles.audioBtn}>
+                            <Image style={styles.audioImg} source={require('../assets/img/10sec_forward-128.png')} />
+                        </TouchableOpacity>
                     </View>
                 </View>
 
@@ -122,31 +144,48 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     audioBtnBox: {
-        flex: .2,
+        flex: 1,
         backgroundColor: 'red',
         padding: 5,
         display: 'flex',
-        alignItems: 'flex-start',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    audioBtnBoxForward: {
+        flex: 1,
+        backgroundColor: 'skyblue',
+        padding: 5,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    audioBtnBoxRewind: {
+        flex: 1,
+        backgroundColor: 'skyblue',
+        padding: 5,
+        display: 'flex',
+        alignItems: 'center',
         justifyContent: 'center'
     },
     audioBtn: {
         backgroundColor: 'lightblue',
         padding: 10,
         borderRadius: 50,
-        height: 50,
-        width: 50,
+        height: 60,
+        width: 60,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
     },
     audioImg: {
         padding: 10,
-        borderRadius: 50,
-        height: 50,
-        width: 50,
+        // borderRadius: 50,
+        height: 70,
+        width: 70,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
+        
     },
     // audioImgPause: {
     //     padding: 10,
@@ -181,8 +220,15 @@ const mapStateToProps = state => {
         totalTime: state.audio.totalTime,
         isPlaying: state.audio.isPlaying,
         isPaused: state.audio.isPaused,
+        currentTime: state.audio.currentTime,
         error: state.audio.error
     }
 }
 
-export default connect(mapStateToProps, { audioPlaying, audioTime, audioError, audioPaused })(SelectedTour);
+export default connect(mapStateToProps, { 
+    audioPlaying, 
+    audioTime, 
+    audioError, 
+    audioPaused,
+    audioCurrentTime 
+})(SelectedTour);

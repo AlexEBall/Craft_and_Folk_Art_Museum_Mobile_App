@@ -1,9 +1,16 @@
-import {AUDIO_PLAYING, AUDIO_TIME, AUDIO_ERROR, AUDIO_PAUSE} from '../actions/types';
+import {
+    AUDIO_PLAYING, 
+    AUDIO_TIME, 
+    AUDIO_ERROR, 
+    AUDIO_PAUSE,
+    AUDIO_CURRENT_TIME 
+} from '../actions/types';
 
 const INITIAL_STATE = {
     totalTime: 0,
     isPlaying: false,
     isPaused: false,
+    currentTime: 0,
     error: null
 }
 
@@ -17,6 +24,8 @@ export default (state=INITIAL_STATE, action) => {
             return {...state, error: action.payload }
         case AUDIO_PAUSE: 
             return {...state, isPaused: action.payload }
+        case AUDIO_CURRENT_TIME:
+            return {...state, currentTime: action.payload }
         default:
             return state; 
     }
