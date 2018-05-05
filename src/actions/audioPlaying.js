@@ -3,7 +3,8 @@ import {
     AUDIO_TIME, 
     AUDIO_ERROR, 
     AUDIO_PAUSE,
-    AUDIO_SET_TIME
+    AUDIO_SET_TIME,
+    AUDIO_CURRENT_TIME
 } from './types';
 
 export const audioPlaying = (value) => {
@@ -39,5 +40,12 @@ export const audioSetTime = (setTime) => {
     return {
         type: 'audio_set_time',
         payload: setTime
+    }
+}
+
+export const audioCurrentTime = (value) => {
+    return {
+        type: 'audio_current_time',
+        payload: value
     }
 }

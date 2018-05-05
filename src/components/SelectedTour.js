@@ -12,24 +12,22 @@ import {
     audioTime, 
     audioError, 
     audioPaused,
-    audioSetTime
+    audioSetTime,
+    audioCurrentTime
 } from '../actions';
-// import {Player, MediaStates} from 'react-native-audio-toolkit';
-// import Sound from 'react-native-sound';
 import AudioPlayer from 'react-native-play-audio';
 
 class SelectedTour extends Component {
 
-    // let audio = new Player(this.props.audioLinkName);
     _audioPlay = (url) => {
         console.log('pressed');
 
-        // setInterval(() => {
-        //     AudioPlayer.getCurrentTime((currentTime) => {
-        //     console.log('current time::::: is :::: ', currentTime);
-        //     this.props.audioCurrentTime(currentTime);
-        //     });
-        // }, 1000);
+        setInterval(() => {
+            AudioPlayer.getCurrentTime((currentTime) => {
+            console.log('current time::::: is :::: ', currentTime);
+            this.props.audioCurrentTime(currentTime);
+            });
+        }, 1000);
 
         if (this.props.isPlaying === false && this.props.isPaused === false) {
         AudioPlayer.prepare(url, () => {
@@ -70,7 +68,27 @@ class SelectedTour extends Component {
         });
     }
 
-    audioToggle = (url) => {
+    _audioRewind = (url) => {
+        console.log('rewind');
+
+        const currentTime = AudioPlayer.getCurrentTime((currentTime) => {
+            console.log('current time::::: is :::: ', currentTime);
+            // this.props.audioSetTime(currentTime);
+
+            const rewoundTime = (currentTime - 10);
+            console.log('rewound time is :::::: ', rewoundTime);
+
+            this.props.audioSetTime(rewoundTime);
+
+            if (currentTime < 10) {
+                AudioPlayer.setTime(0);
+            } else {
+            AudioPlayer.setTime(this.props.setTime);
+            }
+        });
+    }
+
+    audioPlayPauseToggle = (url) => {
 
         if (this.props.isPlaying === true) {
             return (
@@ -83,6 +101,22 @@ class SelectedTour extends Component {
                 <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioPlay(url)}>
                     <Image style={styles.audioImg} source={require('../assets/img/audioPlay.png')} />
                 </TouchableOpacity>
+            );
+        }
+    }
+
+    audioRewindTouchableToggle = (url) => {
+        if (this.props.currentTime < 10) {
+            return (
+            <TouchableOpacity style={styles.audioBtn} disabled={true} onPress={() => this._audioRewind(url)}>
+                <Image style={styles.audioImg} source={require('../assets/img/10sec_backward-256.png')} />
+            </TouchableOpacity>
+            );
+        } else {
+            return (
+            <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioRewind(url)}>
+                <Image style={styles.audioImg} source={require('../assets/img/10sec_backward-256.png')} />
+            </TouchableOpacity>
             );
         }
     }
@@ -104,12 +138,10 @@ class SelectedTour extends Component {
 
                 <View style={styles.selectedTourAudioInfoBox}>
                     <View style={styles.audioBtnBoxRewind}>
-                        <TouchableOpacity style={styles.audioBtn}>
-                            <Image style={styles.audioImg} source={require('../assets/img/10sec_backward-256.png')} />
-                        </TouchableOpacity>
+                        {this.audioRewindTouchableToggle(url)}
                     </View>
                     <View style={styles.audioBtnBox}>
-                        {this.audioToggle(url)}
+                        {this.audioPlayPauseToggle(url)}
                     </View>
                     <View style={styles.audioBtnBoxForward}>
                         <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioForward(url)}>
@@ -233,6 +265,7 @@ const mapStateToProps = state => {
         isPlaying: state.audio.isPlaying,
         isPaused: state.audio.isPaused,
         setTime: state.audio.setTime,
+        currentTime: state.audio.currentTime,
         error: state.audio.error
     }
 }
@@ -242,5 +275,6 @@ export default connect(mapStateToProps, {
     audioTime, 
     audioError, 
     audioPaused,
-    audioSetTime 
+    audioSetTime,
+    audioCurrentTime 
 })(SelectedTour);

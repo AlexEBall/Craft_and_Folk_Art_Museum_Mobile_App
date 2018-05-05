@@ -3,7 +3,8 @@ import {
     AUDIO_TIME, 
     AUDIO_ERROR, 
     AUDIO_PAUSE,
-    AUDIO_SET_TIME 
+    AUDIO_SET_TIME,
+    AUDIO_CURRENT_TIME
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -11,6 +12,7 @@ const INITIAL_STATE = {
     isPlaying: false,
     isPaused: false,
     setTime: 0,
+    currentTime: 0,
     error: null
 }
 
@@ -26,6 +28,8 @@ export default (state=INITIAL_STATE, action) => {
             return {...state, isPaused: action.payload }
         case AUDIO_SET_TIME:
             return {...state, setTime: action.payload }
+        case AUDIO_CURRENT_TIME:    
+            return {...state, currentTime: action.payload }
         default:
             return state; 
     }

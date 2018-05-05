@@ -7,3 +7,4 @@ export const AUDIO_TIME = 'audio_time';
 export const AUDIO_ERROR = 'audio_error';
 export const AUDIO_PAUSE = 'audio_pause';
 export const AUDIO_SET_TIME = 'audio_set_time';
+export const AUDIO_CURRENT_TIME = 'audio_current_time';
