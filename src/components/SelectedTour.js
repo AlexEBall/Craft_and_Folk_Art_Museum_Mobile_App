@@ -121,6 +121,10 @@ class SelectedTour extends Component {
         }
     }
 
+    componentWillUnmount = () => {
+        AudioPlayer.stop();
+    } 
+
     render() {
         console.log(this.props);
 
