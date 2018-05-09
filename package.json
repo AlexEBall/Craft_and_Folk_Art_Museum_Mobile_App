@@ -10,6 +10,7 @@
     "axios": "^0.18.0",
     "react": "^16.3.1",
     "react-native": "0.55.3",
+    "react-native-animated-progress-bar": "^1.1.0",
     "react-native-audio-streamer": "0.0.9",
     "react-native-audio-toolkit": "^1.0.6",
     "react-native-play-audio": "^0.1.2",

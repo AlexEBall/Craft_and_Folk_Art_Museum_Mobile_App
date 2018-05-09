@@ -4,7 +4,8 @@ import {
     AUDIO_ERROR, 
     AUDIO_PAUSE,
     AUDIO_SET_TIME,
-    AUDIO_CURRENT_TIME
+    AUDIO_CURRENT_TIME,
+    AUDIO_PLAYER_VIEW_WIDTH
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -13,6 +14,7 @@ const INITIAL_STATE = {
     isPaused: false,
     setTime: 0,
     currentTime: 0,
+    viewWidth: 0,
     error: null
 }
 
@@ -30,6 +32,8 @@ export default (state=INITIAL_STATE, action) => {
             return {...state, setTime: action.payload }
         case AUDIO_CURRENT_TIME:    
             return {...state, currentTime: action.payload }
+        case AUDIO_PLAYER_VIEW_WIDTH:
+            return {...state, viewWidth: action.payload }
         default:
             return state; 
     }

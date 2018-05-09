@@ -8,3 +8,4 @@ export const AUDIO_ERROR = 'audio_error';
 export const AUDIO_PAUSE = 'audio_pause';
 export const AUDIO_SET_TIME = 'audio_set_time';
 export const AUDIO_CURRENT_TIME = 'audio_current_time';
+export const AUDIO_PLAYER_VIEW_WIDTH = 'audio_player_view_width';
