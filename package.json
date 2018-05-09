@@ -13,6 +13,7 @@
     "react-native-audio-streamer": "0.0.9",
     "react-native-audio-toolkit": "^1.0.6",
     "react-native-play-audio": "^0.1.2",
+    "react-native-progress-bar-animated": "^1.0.6",
     "react-native-router-flux": "^4.0.0-beta.28",
     "react-native-sound": "^0.10.9",
     "react-redux": "^5.0.7",

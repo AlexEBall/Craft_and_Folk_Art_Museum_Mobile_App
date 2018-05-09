@@ -166,14 +166,19 @@ class SelectedTour extends Component {
 
 
                 <View style={styles.selectedTourAudioInfoBox}>
-                    <View style={styles.audioBtnBoxRewind}>
-                        {this.audioRewindTouchableToggle(url)}
+                    <View style={styles.audioControls}>
+                        <View style={styles.audioBtnBoxRewind}>
+                            {this.audioRewindTouchableToggle(url)}
+                        </View>
+                        <View style={styles.audioBtnBox}>
+                            {this.audioPlayPauseToggle(url)}
+                        </View>
+                        <View style={styles.audioBtnBoxForward}>
+                            {this.audioForwardTouchableToggle(url)}
+                        </View>
                     </View>
-                    <View style={styles.audioBtnBox}>
-                        {this.audioPlayPauseToggle(url)}
-                    </View>
-                    <View style={styles.audioBtnBoxForward}>
-                        {this.audioForwardTouchableToggle(url)}
+                    <View style={styles.audioProgressBarBox}>
+                        <Text>Hello</Text>
                     </View>
                 </View>
 
@@ -210,9 +215,15 @@ const styles = StyleSheet.create({
         flex: .3,
         backgroundColor: 'lightgrey',
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    audioControls: {
+        flex: .8,
+        display: 'flex',
+        flexDirection: 'row',
+        backgroundColor: 'purple'
     },
     audioBtnBox: {
         flex: 1,
@@ -267,14 +278,20 @@ const styles = StyleSheet.create({
     //     alignItems: 'center',
     //     justifyContent: 'center'
     // },
-    audioInfo: {
-        flex: .8,
-        backgroundColor: 'tan',
-        padding: 10,
+    audioProgressBarBox: {
+        flex: .2,
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
+        flexDirection: 'row',
+        backgroundColor: 'green'
     },
+    // audioInfo: {
+    //     flex: .8,
+    //     backgroundColor: 'tan',
+    //     padding: 10,
+    //     display: 'flex',
+    //     alignItems: 'center',
+    //     justifyContent: 'center'
+    // },
     selectedTourTextBox: {
         flex: 1,
         backgroundColor: 'white',
