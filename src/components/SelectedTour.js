@@ -55,11 +55,11 @@ class SelectedTour extends Component {
     _audioForward = (url) => {
         console.log('forward');
 
-        const currentTime = AudioPlayer.getCurrentTime((currentTime) => {
+        let currentTime = AudioPlayer.getCurrentTime((currentTime) => {
             console.log('current time::::: is :::: ', currentTime);
             // this.props.audioSetTime(currentTime);
 
-            const forwardedTime = (currentTime + 10);
+            let forwardedTime = (currentTime + 10);
             console.log('forwarded time is :::::: ', forwardedTime);
 
             this.props.audioSetTime(forwardedTime);
@@ -71,11 +71,11 @@ class SelectedTour extends Component {
     _audioRewind = (url) => {
         console.log('rewind');
 
-        const currentTime = AudioPlayer.getCurrentTime((currentTime) => {
+        let currentTime = AudioPlayer.getCurrentTime((currentTime) => {
             console.log('current time::::: is :::: ', currentTime);
             // this.props.audioSetTime(currentTime);
 
-            const rewoundTime = (currentTime - 10);
+            let rewoundTime = (currentTime - 10);
             console.log('rewound time is :::::: ', rewoundTime);
 
             this.props.audioSetTime(rewoundTime);
@@ -122,7 +122,14 @@ class SelectedTour extends Component {
     }
 
     componentWillUnmount = () => {
+        this.props.audioCurrentTime(0);
+        this.props.audioPlaying(false);
+        this.props.audioPaused(false);
+        this.props.audioSetTime(0);
+        this.props.audioTime(0);
         AudioPlayer.stop();
+
+        console.log('component unmounted');
     } 
 
     render() {
