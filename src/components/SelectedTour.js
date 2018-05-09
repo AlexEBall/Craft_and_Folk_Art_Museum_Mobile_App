@@ -121,6 +121,24 @@ class SelectedTour extends Component {
         }
     }
 
+    audioForwardTouchableToggle = (url) => {
+        const limit = (this.props.totalTime - 10);
+        console.log(limit);
+        if (this.props.currentTime > (this.props.totalTime - 10)) {
+            return (
+            <TouchableOpacity style={styles.audioBtn} disabled={true} onPress={() => this._audioForward(url)}>
+                <Image style={styles.audioImg} source={require('../assets/img/10sec_forward-128.png')} />
+            </TouchableOpacity>
+            );
+        } else {
+            return (
+            <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioForward(url)}>
+                <Image style={styles.audioImg} source={require('../assets/img/10sec_forward-128.png')} />
+            </TouchableOpacity>
+            );
+        }
+    }
+
     componentWillUnmount = () => {
         this.props.audioCurrentTime(0);
         this.props.audioPlaying(false);
@@ -155,9 +173,7 @@ class SelectedTour extends Component {
                         {this.audioPlayPauseToggle(url)}
                     </View>
                     <View style={styles.audioBtnBoxForward}>
-                        <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioForward(url)}>
-                            <Image style={styles.audioImg} source={require('../assets/img/10sec_forward-128.png')} />
-                        </TouchableOpacity>
+                        {this.audioForwardTouchableToggle(url)}
                     </View>
                 </View>
 
