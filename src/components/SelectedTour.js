@@ -18,8 +18,9 @@ import {
     audioPlayerViewWidth
 } from '../actions';
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
-import ProgressBar from 'react-native-animated-progress-bar';
+// import ProgressBar from 'react-native-animated-progress-bar';
 import AudioPlayer from 'react-native-play-audio';
+import ProgressBar from './ProgressBar';
 
 class SelectedTour extends Component {
 
@@ -150,18 +151,17 @@ class SelectedTour extends Component {
         console.log(width);
         console.log(height);
 
-        this.props.audioPlayerViewWidth(width);
+        this.props.audioPlayerViewWidth(y);
     }
 
-    /*renderProgressBar = () => {
-        <ProgressBarAnimated
-            width={this.props.viewWidth}
-            value={this.props.currentTime}
-            maxValue={this.props.totalTime}
-            backgroundColor='blue'
-            backgroundColorOnComplete='yellow'
-        />
-    }*/
+    /* componentDidMount = () => {
+        setInterval(() => {
+            AudioPlayer.getCurrentTime((currentTime) => {
+            console.log('current time::::: is :::: ', currentTime);
+            this.props.audioCurrentTime(currentTime);
+            });
+        }, 1000);
+    } */
 
     componentWillUnmount = () => {
         this.props.audioCurrentTime(0);
@@ -206,12 +206,12 @@ class SelectedTour extends Component {
                         </View>
                     </View>
                     <View style={styles.audioProgressBarBox}>
-                        <ProgressBarAnimated
-                            width={this.props.viewWidth}
-                            value={this.props.currentTime}
+                        <ProgressBar
+                            row
+                            progress={this.props.currentTime}
+                            duration={500} 
+                            fillColor={'blue'}
                             maxValue={this.props.totalTime}
-                            backgroundColor='blue'
-                            backgroundColorOnComplete='yellow'
                         />
                     </View>
                 </View>
@@ -319,8 +319,13 @@ const styles = StyleSheet.create({
     audioProgressBarBox: {
         flex: .2,
         display: 'flex',
+        flexDirection: 'row',
         justifyContent: 'center',
+        width: 248,
         backgroundColor: 'green'
+    },
+    audioProgressBar: {
+        flex: 1
     },
 
     // TEXT BOX STYLING 
@@ -341,6 +346,16 @@ const mapStateToProps = state => {
         error: state.audio.error
     }
 }
+
+/* <ProgressBarAnimated
+                            style={styles.audioProgressBar}
+                            width={this.props.totalTime}
+                            height={10}
+                            value={this.props.currentTime}
+                            maxValue={this.props.totalTime}
+                            backgroundColor='blue'
+                            backgroundColorOnComplete='yellow'
+                        /> */
 
 export default connect(mapStateToProps, { 
     audioPlaying, 
