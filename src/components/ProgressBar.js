@@ -15,6 +15,8 @@ export default class ProgressBar extends Component {
       }).start();
     }
   }
+
+
   
   
   render() {
@@ -31,8 +33,10 @@ export default class ProgressBar extends Component {
 
     console.log('progressbar props', this.props);
 
+    
+
     const widthInterpolated = this.animation.interpolate({
-      inputRange: [0, 73],
+      inputRange: [0, maxValue],
       outputRange: ["0%", "100%"],
       extrapolate: "clamp"
     })

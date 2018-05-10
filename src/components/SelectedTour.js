@@ -144,6 +144,27 @@ class SelectedTour extends Component {
         }
     }
 
+    // renderProgressBar = () => {
+    //     console.log('Im here!!!!!')
+    //     if (this.props.totalTime === 0) {
+    //         <ProgressBar
+    //             row
+    //             progress={this.props.currentTime}
+    //             duration={500} 
+    //             fillColor={'blue'}
+    //             maxValue={1}
+    //         />
+    //     } else {
+    //         <ProgressBar
+    //             row
+    //             progress={this.props.currentTime}
+    //             duration={500} 
+    //             fillColor={'blue'}
+    //             maxValue={this.props.totalTime}
+    //         />
+    //     }
+    // }
+
     _findDimensions = (layout) => {
         const {x, y, width, height} = layout;
         console.log(x);
@@ -151,7 +172,7 @@ class SelectedTour extends Component {
         console.log(width);
         console.log(height);
 
-        this.props.audioPlayerViewWidth(y);
+        this.props.audioPlayerViewWidth(width);
     }
 
     /* componentDidMount = () => {
