@@ -12,10 +12,6 @@ import Button from '../components/Button';
 
 export default class Tour extends Component {
 
-    renderTours() {
-
-    }
-
     onTourPress() {
         Actions.tour({selectedTour: this.props.selectedTour});
     }

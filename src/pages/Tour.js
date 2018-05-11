@@ -17,7 +17,8 @@ export default class Tour extends Component {
 
                     <SelectedTour
                     tourText={this.props.selectedTour.floorText}
-                    audioLinkName={this.props.selectedTour.audioLink} />
+                    audioLinkName={this.props.selectedTour.audioLink}
+                    floorGallery={this.props.selectedTour.floorGallery} />
 
                 </View>
 

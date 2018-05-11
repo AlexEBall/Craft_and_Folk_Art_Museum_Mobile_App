@@ -3,6 +3,7 @@ import {
     Text, 
     View, 
     Image, 
+    ImageBackground,
     StyleSheet, 
     ScrollView, 
     Dimensions,
@@ -17,8 +18,6 @@ import {
     audioCurrentTime,
     audioPlayerViewWidth
 } from '../actions';
-import ProgressBarAnimated from 'react-native-progress-bar-animated';
-// import ProgressBar from 'react-native-animated-progress-bar';
 import AudioPlayer from 'react-native-play-audio';
 import ProgressBar from './ProgressBar';
 
@@ -111,7 +110,7 @@ class SelectedTour extends Component {
     }
 
     audioRewindTouchableToggle = (url) => {
-        if (this.props.currentTime < 10) {
+        if (this.props.currentTime < 10 || this.props.currentTime === this.props.totalTime) {
             return (
             <TouchableOpacity style={styles.audioBtn} disabled={true} onPress={() => this._audioRewind(url)}>
                 <Image style={styles.audioImg} source={require('../assets/img/10sec_backward-256.png')} />
@@ -144,27 +143,6 @@ class SelectedTour extends Component {
         }
     }
 
-    // renderProgressBar = () => {
-    //     console.log('Im here!!!!!')
-    //     if (this.props.totalTime === 0) {
-    //         <ProgressBar
-    //             row
-    //             progress={this.props.currentTime}
-    //             duration={500} 
-    //             fillColor={'blue'}
-    //             maxValue={1}
-    //         />
-    //     } else {
-    //         <ProgressBar
-    //             row
-    //             progress={this.props.currentTime}
-    //             duration={500} 
-    //             fillColor={'blue'}
-    //             maxValue={this.props.totalTime}
-    //         />
-    //     }
-    // }
-
     _findDimensions = (layout) => {
         const {x, y, width, height} = layout;
         console.log(x);
@@ -174,15 +152,6 @@ class SelectedTour extends Component {
 
         this.props.audioPlayerViewWidth(width);
     }
-
-    /* componentDidMount = () => {
-        setInterval(() => {
-            AudioPlayer.getCurrentTime((currentTime) => {
-            console.log('current time::::: is :::: ', currentTime);
-            this.props.audioCurrentTime(currentTime);
-            });
-        }, 1000);
-    } */
 
     componentWillUnmount = () => {
         this.props.audioCurrentTime(0);
@@ -195,24 +164,26 @@ class SelectedTour extends Component {
         console.log('component unmounted');
     } 
 
+    renderImages = () => {
+        console.log('floorGallery array? ', this.props.floorGallery);
+        return this.props.floorGallery.map(image => 
+            <ImageBackground style={styles.selectedTourImg} source={{ uri: image }}/>
+        );
+    }
+
     render() {
         console.log(this.props);
-
-        console.log('-----------');
-        console.log(AudioPlayer);
     
         const url = this.props.audioLinkName;
-        const barWidth = Dimensions.get('screen').width - 20;
 
         return (
             <View style={styles.selectedTour}>
-
-                <View style={styles.tourImgBox}>
-                    <Image
-                        source={require('../assets/img/clay.jpeg')}
-                        style={styles.selectedTourImg} />
-                </View>
-
+                
+                <ScrollView horizontal={true}>
+                    <View style={styles.tourImgBox}>
+                        {this.renderImages()}
+                    </View>
+                </ScrollView>
 
                 <View style={styles.selectedTourAudioInfoBox} onLayout={(event) => { this._findDimensions(event.nativeEvent.layout) }}>
                     <View style={styles.audioControls}>
@@ -239,11 +210,11 @@ class SelectedTour extends Component {
 
 
                 <ScrollView>
-                <View style={styles.selectedTourTextBox}>
-                    <Text style={styles.selectedTourText}>
-                        {this.props.tourText}
-                    </Text>
-                </View>
+                    <View style={styles.selectedTourTextBox}>
+                        <Text style={styles.selectedTourText}>
+                            {this.props.tourText}
+                        </Text>
+                    </View>
                 </ScrollView>
                 
             </View>
@@ -264,10 +235,14 @@ const styles = StyleSheet.create({
     // 3 PARTS OF CONTAINER
     tourImgBox: {
         flex: 1,
-        backgroundColor: 'blue'
+        display: 'flex',
+        flexDirection: 'row',
+        // height: 350,
+        width: 500
+        // margin: 5
     },
     selectedTourAudioInfoBox: {
-        flex: .35,
+        flex: .5,
         backgroundColor: 'lightgrey',
         display: 'flex',
         flexDirection: 'column',
@@ -280,12 +255,17 @@ const styles = StyleSheet.create({
     },
 
     // IMG STYLING 
+    tourImgBoxContainer: {
+        backgroundColor: 'yellow'
+    },
     selectedTourImg: {
         flex: 1,
         backgroundColor: 'lightblue',
         height: null,
         width: null,
-        resizeMode: 'cover'
+        margin: 2
+        // resizeMode: 'cover'
+        // height: 250
     },
 
     // AUDIO CONTROL STYLING
@@ -297,7 +277,7 @@ const styles = StyleSheet.create({
     },
     audioBtnBox: {
         flex: 1,
-        backgroundColor: 'red',
+        backgroundColor: 'skyblue',
         padding: 5,
         display: 'flex',
         alignItems: 'center',
@@ -342,7 +322,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        width: 248,
         backgroundColor: 'green'
     },
     audioProgressBar: {
@@ -367,16 +346,6 @@ const mapStateToProps = state => {
         error: state.audio.error
     }
 }
-
-/* <ProgressBarAnimated
-                            style={styles.audioProgressBar}
-                            width={this.props.totalTime}
-                            height={10}
-                            value={this.props.currentTime}
-                            maxValue={this.props.totalTime}
-                            backgroundColor='blue'
-                            backgroundColorOnComplete='yellow'
-                        /> */
 
 export default connect(mapStateToProps, { 
     audioPlaying, 
