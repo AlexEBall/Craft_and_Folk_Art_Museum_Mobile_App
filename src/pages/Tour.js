@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
     },
     tourContainer: {
         flex: 1,
-        backgroundColor: 'grey'
+        backgroundColor: '#ffffff'
     }
 });

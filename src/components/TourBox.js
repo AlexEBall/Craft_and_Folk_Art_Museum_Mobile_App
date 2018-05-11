@@ -41,13 +41,15 @@ const styles = StyleSheet.create({
         // flex: 1,
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: 'red',
-        margin: 5,
+        marginTop: 10,
+        marginBottom: 10,
+        marginRight: 5,
+        marginLeft: 5,
         height: 350
     },
     tourBoxTours: {
         flex: .8,
-        backgroundColor: 'blue',
+        backgroundColor: '#ffffff',
         display: 'flex',
         flexDirection: 'row'
     }

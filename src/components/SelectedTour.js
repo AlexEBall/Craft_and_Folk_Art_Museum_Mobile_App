@@ -6,7 +6,6 @@ import {
     ImageBackground,
     StyleSheet, 
     ScrollView, 
-    Dimensions,
     TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {
@@ -166,8 +165,8 @@ class SelectedTour extends Component {
 
     renderImages = () => {
         console.log('floorGallery array? ', this.props.floorGallery);
-        return this.props.floorGallery.map(image => 
-            <ImageBackground style={styles.selectedTourImg} source={{ uri: image }}/>
+        return this.props.floorGallery.map((image, index) => 
+            <ImageBackground key={index} style={styles.selectedTourImg} source={{ uri: image }}/>
         );
     }
 
@@ -182,6 +181,14 @@ class SelectedTour extends Component {
                 <ScrollView horizontal={true}>
                     <View style={styles.tourImgBox}>
                         {this.renderImages()}
+                    </View>
+                </ScrollView>
+
+                <ScrollView>
+                    <View style={styles.selectedTourTextBox}>
+                        <Text style={styles.selectedTourText}>
+                            {this.props.tourText}
+                        </Text>
                     </View>
                 </ScrollView>
 
@@ -207,15 +214,6 @@ class SelectedTour extends Component {
                         />
                     </View>
                 </View>
-
-
-                <ScrollView>
-                    <View style={styles.selectedTourTextBox}>
-                        <Text style={styles.selectedTourText}>
-                            {this.props.tourText}
-                        </Text>
-                    </View>
-                </ScrollView>
                 
             </View>
         );
@@ -227,23 +225,22 @@ const styles = StyleSheet.create({
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: 'red',
         margin: 10,
         height: 'auto'
     },
 
     // 3 PARTS OF CONTAINER
     tourImgBox: {
-        flex: 1,
+        flex: 1.5,
         display: 'flex',
         flexDirection: 'row',
-        // height: 350,
+        height: 350,
         width: 500
         // margin: 5
     },
     selectedTourAudioInfoBox: {
         flex: .5,
-        backgroundColor: 'lightgrey',
+        backgroundColor: '#ffffff',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -251,13 +248,12 @@ const styles = StyleSheet.create({
     },
     selectedTourTextBox: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        borderTopColor: '#009FB7',
+        borderTopWidth: 2
     },
 
     // IMG STYLING 
-    tourImgBoxContainer: {
-        backgroundColor: 'yellow'
-    },
     selectedTourImg: {
         flex: 1,
         backgroundColor: 'lightblue',

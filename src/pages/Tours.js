@@ -49,12 +49,12 @@ const styles = StyleSheet.create({
     },
     headerFixed: {
         flex: .1,
-        backgroundColor: 'violet'
+        backgroundColor: '#F4A93F'
 
     },
     toursContainer: {
         flex: .9,
-        backgroundColor: 'grey',
+        backgroundColor: '#ffffff',
     }
 });
 

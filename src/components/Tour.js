@@ -16,6 +16,19 @@ export default class Tour extends Component {
         Actions.tour({selectedTour: this.props.selectedTour});
     }
 
+    renderButton = () => {
+        console.log('hi');
+        if (!this.props.selectedTour) {
+            return <Button disabled={true} onPress={this.onTourPress.bind(this)}>
+                        Start
+                    </Button>
+        } else {
+            return <Button onPress={this.onTourPress.bind(this)}>
+                        Start
+                    </Button>
+        }
+    }
+
     render() {
         // console.log(this.props.seledtedTour);
         const coverImage = this.props.selectedTour.coverPic;
@@ -34,9 +47,7 @@ export default class Tour extends Component {
                     </ImageBackground>
                 </View>
                 <View style={styles.tourInfoBox}>
-                    <Button onPress={this.onTourPress.bind(this)}>
-                        Start
-                    </Button>
+                    {this.renderButton()}
                 </View>
             </View>
         );
@@ -44,35 +55,36 @@ export default class Tour extends Component {
 }
 
 const styles = StyleSheet.create({
-    // tourBoxTours: {
-    //     flex: .8,
-    //     backgroundColor: 'blue',
-    //     display: 'flex',
-    //     flexDirection: 'row'
-    // },
     tour: {
-        // flex: 1,
         width: 250,
-        backgroundColor: 'white',
-        margin: 2,
+        backgroundColor: '#F08433',
+        marginRight: 5,
+        marginLeft: 5,
+        marginTop: 10,
+        marginBottom: 10,
+        borderRadius: 10,
         display: 'flex',
         flexDirection: 'column'
     },
     tourImg: {
         flex: .7,
-        backgroundColor: 'seagreen'
+        // backgroundColor: 'seagreen'
 
     },
     tourInfoBox: {
         flex: .3,
-        backgroundColor: 'indigo'
+        borderRadius: 10,
+        backgroundColor: '#F08433'
     },
     img: {
         flex: 1,
         height: null,
         width: null,
+        overflow: 'hidden',
+        borderRadius: 10,
+        // margin: 10
         // resizeMode: 'cover',
-        backgroundColor: 'rgb(0, 0, 0)'
+        // backgroundColor: 'rgb(0, 0, 0)'
     },
     imgTextBox: {
         flex: 1,
