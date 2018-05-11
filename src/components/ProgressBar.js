@@ -15,9 +15,6 @@ export default class ProgressBar extends Component {
       }).start();
     }
   }
-
-
-  
   
   render() {
     const {
@@ -32,8 +29,6 @@ export default class ProgressBar extends Component {
     } = this.props;
 
     console.log('progressbar props', this.props);
-
-    
 
     const widthInterpolated = this.animation.interpolate({
       inputRange: [0, maxValue],
@@ -68,7 +63,7 @@ ProgressBar.defaultProps = {
   borderColor: "#000",
   borderWidth: 2,
   borderRadius: 4,
-  barColor: "tomato",
+  barColor: "green",
   fillColor: "rgba(0,0,0,.5)",
-  duration: 100
+  duration: 300
 }

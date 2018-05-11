@@ -209,7 +209,11 @@ class SelectedTour extends Component {
                             row
                             progress={this.props.currentTime}
                             duration={500} 
-                            fillColor={'blue'}
+                            borderColor={'#ffffff'}
+                            fillColor={'white'}
+                            barColor={'#009FB7'}
+                            borderWidth={1}
+                            borderRadius={10}
                             maxValue={this.props.totalTime}
                         />
                     </View>
@@ -234,8 +238,8 @@ const styles = StyleSheet.create({
         flex: 1.5,
         display: 'flex',
         flexDirection: 'row',
-        height: 350,
-        width: 500
+        // height: 250,
+        width: 600
         // margin: 5
     },
     selectedTourAudioInfoBox: {
@@ -259,9 +263,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'lightblue',
         height: null,
         width: null,
-        margin: 2
-        // resizeMode: 'cover'
-        // height: 250
+        margin: 5
     },
 
     // AUDIO CONTROL STYLING
@@ -271,10 +273,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: 'purple'
     },
+    // refactor to just one
     audioBtnBox: {
         flex: 1,
         backgroundColor: 'skyblue',
-        padding: 5,
+        padding: 20,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
@@ -282,7 +285,7 @@ const styles = StyleSheet.create({
     audioBtnBoxForward: {
         flex: 1,
         backgroundColor: 'skyblue',
-        padding: 5,
+        padding: 20,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
@@ -290,14 +293,14 @@ const styles = StyleSheet.create({
     audioBtnBoxRewind: {
         flex: 1,
         backgroundColor: 'skyblue',
-        padding: 5,
+        padding: 20,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
     },
     audioBtn: {
         backgroundColor: 'lightblue',
-        padding: 10,
+        padding: 20,
         borderRadius: 50,
         height: 60,
         width: 60,
@@ -314,7 +317,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     audioProgressBarBox: {
-        flex: .2,
+        flex: .1,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
