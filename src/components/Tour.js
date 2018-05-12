@@ -5,6 +5,7 @@ import {
     Image,
     StyleSheet,
     ScrollView,
+    TouchableOpacity,
     ImageBackground
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
@@ -16,38 +17,49 @@ export default class Tour extends Component {
         Actions.tour({selectedTour: this.props.selectedTour});
     }
 
+    renderOwnButton = () => {
+        console.log('hello');
+        if (!this.props.selectedTour) {
+            return  <TouchableOpacity style={styles.startBtnDisabled} onPress={this.onTourPress.bind(this)}>
+                        <Text style={styles.startBtnText}>Loading</Text>
+                    </TouchableOpacity>
+        } else {
+            return  <TouchableOpacity style={styles.startBtn} onPress={this.onTourPress.bind(this)}>
+                        <Text style={styles.startBtnText}>Start</Text>
+                    </TouchableOpacity>
+        }
+    }
+
     renderButton = () => {
         console.log('hi');
         if (!this.props.selectedTour) {
-            return <Button disabled={true} onPress={this.onTourPress.bind(this)}>
-                        Start
+            return <Button style={styles.startBtn} disabled={true} onPress={this.onTourPress.bind(this)}>
+                        <Text>Start</Text>
                     </Button>
         } else {
-            return <Button onPress={this.onTourPress.bind(this)}>
-                        Start
+            return <Button style={styles.startBtn} onPress={this.onTourPress.bind(this)}>
+                        <Text>Start</Text>
                     </Button>
         }
     }
 
     render() {
-        // console.log(this.props.seledtedTour);
         const coverImage = this.props.selectedTour.coverPic;
 
         return (
             <View style={styles.tour}>
-                <View style={styles.tourImg}>
+                <View style={styles.tourImgBox}>
                     <ImageBackground 
                         source={{ uri: coverImage }}
                         style={styles.img}>
-                        <View style={styles.imgTextBox}>
-                            <Text style={styles.imgText}>
-                                Floor {this.props.selectedTour.floor}
-                            </Text>
-                        </View>
+                    <View style={styles.push}></View>
+                    <View style={styles.tourInfoBox}>
+                        <Text style={styles.imgText}>
+                            Floor {this.props.selectedTour.floor}
+                        </Text>
+                        {this.renderOwnButton()}
+                    </View>
                     </ImageBackground>
-                </View>
-                <View style={styles.tourInfoBox}>
-                    {this.renderButton()}
                 </View>
             </View>
         );
@@ -66,15 +78,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column'
     },
-    tourImg: {
-        flex: .7,
-        // backgroundColor: 'seagreen'
-
-    },
-    tourInfoBox: {
-        flex: .3,
-        borderRadius: 10,
-        backgroundColor: '#F08433'
+    tourImgBox: {
+        flex: 1,
     },
     img: {
         flex: 1,
@@ -82,23 +87,63 @@ const styles = StyleSheet.create({
         width: null,
         overflow: 'hidden',
         borderRadius: 10,
-        // margin: 10
-        // resizeMode: 'cover',
-        // backgroundColor: 'rgb(0, 0, 0)'
     },
-    imgTextBox: {
-        flex: 1,
+    tourInfoBox: {
+        flex: .3,
+        display: 'flex',
+        flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
-        transform: [{ skewY: '-10deg' }]
+        backgroundColor: 'rgba(240, 132, 51, .7)'
     },
+    push: {
+        flex: .7
+    },
+    startBtn: {
+        flex: 1,
+        zIndex: 5,
+        flexDirection: 'column',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        opacity: 1,
+        backgroundColor: '#fff',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#009FB7',
+        margin: 15,
+        padding: 5
+    },
+    startBtnDisabled: {
+        flex: 1,
+        zIndex: 5,
+        opacity: .5,
+        backgroundColor: '#fff',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#009FB7',
+        margin: 15,
+        padding: 5
+    },
+    startBtnText: {
+        alignSelf: 'center',
+        color: '#009FB7',
+        fontSize: 16,
+        fontWeight: '600',
+        paddingTop: 10,
+        paddingBottom: 10
+    },
+    // imgTextBox: {
+    //     flex: 1,
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //     transform: [{ skewY: '-10deg' }]
+    // },
     imgText: {
+        margin: 10,
         color: 'white',
-        fontSize: 34,
+        fontSize: 24,
         letterSpacing: 2,
         textShadowOffset: { width: 2, height: 2 },
         textShadowColor: 'black',
         textShadowRadius: 1,
-        // backgroundColor: 'rgba(247, 247, 247, .2)'
     }
 })

@@ -223,6 +223,8 @@ class SelectedTour extends Component {
         );
     }
 }
+
+// FE4A49 red highlight
 const styles = StyleSheet.create({
     // CONTAINER
     selectedTour: {

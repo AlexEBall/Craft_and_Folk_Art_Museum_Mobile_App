@@ -31,11 +31,15 @@ export default class TourBoxHeader extends Component {
 const styles = StyleSheet.create({
     tourBoxHeader: {
         flex: .2,
-        // backgroundColor: '#F9D24E',
+        backgroundColor: '#F9D24E',
         borderTopColor: '#009FB7',
         borderTopWidth: 2,
         borderBottomColor: '#009FB7',
         borderBottomWidth: 2,
+        shadowColor: '#000',
+		shadowOffset: { width: 1, heigh: 2 },
+		shadowOpacity: 0.3,
+		shadowRadius: 2,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -52,8 +56,7 @@ const styles = StyleSheet.create({
         color: '#009FB7',
         textShadowOffset: { width: .5, height: .5 },
         textShadowColor: 'black',
-        textShadowRadius: 1,
-
+        textShadowRadius: 1
     },
     tourBoxButton: {
         flexBasis: '30%'
