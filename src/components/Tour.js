@@ -17,7 +17,7 @@ export default class Tour extends Component {
         Actions.tour({selectedTour: this.props.selectedTour});
     }
 
-    renderOwnButton = () => {
+    renderButton = () => {
         console.log('hello');
         if (!this.props.selectedTour) {
             return  <TouchableOpacity style={styles.startBtnDisabled} onPress={this.onTourPress.bind(this)}>
@@ -27,19 +27,6 @@ export default class Tour extends Component {
             return  <TouchableOpacity style={styles.startBtn} onPress={this.onTourPress.bind(this)}>
                         <Text style={styles.startBtnText}>Start</Text>
                     </TouchableOpacity>
-        }
-    }
-
-    renderButton = () => {
-        console.log('hi');
-        if (!this.props.selectedTour) {
-            return <Button style={styles.startBtn} disabled={true} onPress={this.onTourPress.bind(this)}>
-                        <Text>Start</Text>
-                    </Button>
-        } else {
-            return <Button style={styles.startBtn} onPress={this.onTourPress.bind(this)}>
-                        <Text>Start</Text>
-                    </Button>
         }
     }
 
@@ -57,7 +44,7 @@ export default class Tour extends Component {
                         <Text style={styles.imgText}>
                             Floor {this.props.selectedTour.floor}
                         </Text>
-                        {this.renderOwnButton()}
+                        {this.renderButton()}
                     </View>
                     </ImageBackground>
                 </View>
