@@ -14,7 +14,7 @@ import Button from '../components/Button';
 export default class TourBoxHeader extends Component {
 
     _information = () => {
-        console.log('information');
+        console.log(this.props.title);
     }
 
     render() {
