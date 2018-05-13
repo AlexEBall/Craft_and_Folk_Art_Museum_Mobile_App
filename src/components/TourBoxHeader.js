@@ -12,6 +12,11 @@ import Svg, { Path } from 'react-native-svg';
 import Button from '../components/Button';
 
 export default class TourBoxHeader extends Component {
+
+    _information = () => {
+        console.log('information');
+    }
+
     render() {
         return (
             <View style={styles.tourBoxHeader}>
@@ -21,7 +26,7 @@ export default class TourBoxHeader extends Component {
                     </Text>
                 </View>
                 <View style={styles.tourBoxButton}>
-                    <TouchableOpacity style={styles.infoBtn}>
+                    <TouchableOpacity style={styles.infoBtn} onPress={() => this._information()}>
                         <Svg height="32" width="32">
                             <Path d="M16.5 29v0c-6.904 0-12.5-5.596-12.5-12.5s5.596-12.5 12.5-12.5c6.904 0 12.5 5.596 12.5 12.5s-5.596 12.5-12.5 12.5zM17 22v-7h-3v1h2v6h-2v1h5v-1h-2zM16.5 13c0.828 0 1.5-0.672 1.5-1.5s-0.672-1.5-1.5-1.5c-0.828 0-1.5 0.672-1.5 1.5s0.672 1.5 1.5 1.5v0z"
                                 fill='#ffffff'
