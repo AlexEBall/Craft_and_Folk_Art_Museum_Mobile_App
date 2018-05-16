@@ -9,6 +9,7 @@ import {
     ImageBackground
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import Svg, {Path} from 'react-native-svg';
 import Button from '../components/Button';
 
 export default class Tour extends Component {
@@ -21,11 +22,37 @@ export default class Tour extends Component {
         console.log('hello');
         if (!this.props.selectedTour) {
             return  <TouchableOpacity style={styles.startBtnDisabled} onPress={this.onTourPress.bind(this)}>
-                        <Text style={styles.startBtnText}>Loading</Text>
+                        <Svg height="32" width="32">
+                            <Path d="M30 18h-2v-4c0-6.625-5.375-12-12-12s-12 5.375-12 12v4h-2c-1.105 0-2 0.895-2 2v8c0 1.105 0.895 2 2 2h6v-16c0-4.414 3.586-8 8-8s8 3.586 8 8v16h6c1.105 0 2-0.895 2-2v-8c0-1.105-0.895-2-2-2z"
+                                fill='#009FB7'
+                                stroke='#009FB7'
+                                stokeWidth={5}>
+                            </Path>
+                        </Svg>
+                        <Svg height="32" width="32">
+                            <Path d="M0 16c0 8.836 7.164 16 16 16 8.837 0 16-7.164 16-16 0-8.837-7.163-16-16-16s-16 7.163-16 16zM24 16l-8 8v-6h-8v-4h8v-6l8 8z"
+                                fill='#009FB7'
+                                stroke='#009FB7'
+                                stokeWidth={5}>
+                            </Path>
+                        </Svg>
                     </TouchableOpacity>
         } else {
             return  <TouchableOpacity style={styles.startBtn} onPress={this.onTourPress.bind(this)}>
-                        <Text style={styles.startBtnText}>Start</Text>
+                        <Svg height="32" width="32">
+                            <Path d="M30 18h-2v-4c0-6.625-5.375-12-12-12s-12 5.375-12 12v4h-2c-1.105 0-2 0.895-2 2v8c0 1.105 0.895 2 2 2h6v-16c0-4.414 3.586-8 8-8s8 3.586 8 8v16h6c1.105 0 2-0.895 2-2v-8c0-1.105-0.895-2-2-2z"
+                                fill='#009FB7'
+                                stroke='#009FB7'
+                                stokeWidth={5}>
+                            </Path>
+                        </Svg>
+                        <Svg height="32" width="32">
+                            <Path d="M0 16c0 8.836 7.164 16 16 16 8.837 0 16-7.164 16-16 0-8.837-7.163-16-16-16s-16 7.163-16 16zM24 16l-8 8v-6h-8v-4h8v-6l8 8z"
+                                fill='#009FB7'
+                                stroke='#009FB7'
+                                stokeWidth={5}>
+                            </Path>
+                        </Svg>
                     </TouchableOpacity>
         }
     }
@@ -88,9 +115,9 @@ const styles = StyleSheet.create({
     startBtn: {
         flex: 1,
         zIndex: 5,
-        flexDirection: 'column',
+        flexDirection: 'row',
         alignSelf: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         opacity: 1,
         backgroundColor: '#fff',
         borderRadius: 5,
@@ -110,14 +137,14 @@ const styles = StyleSheet.create({
         margin: 15,
         padding: 5
     },
-    startBtnText: {
-        alignSelf: 'center',
-        color: '#009FB7',
-        fontSize: 16,
-        fontWeight: '600',
-        paddingTop: 10,
-        paddingBottom: 10
-    },
+    // startBtnText: {
+    //     alignSelf: 'center',
+    //     color: '#009FB7',
+    //     fontSize: 16,
+    //     fontWeight: '600',
+    //     paddingTop: 10,
+    //     paddingBottom: 10
+    // },
     // imgTextBox: {
     //     flex: 1,
     //     alignItems: 'center',

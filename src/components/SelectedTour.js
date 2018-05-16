@@ -18,6 +18,7 @@ import {
     audioPlayerViewWidth
 } from '../actions';
 import AudioPlayer from 'react-native-play-audio';
+import Svg, {Path} from 'react-native-svg';
 import ProgressBar from './ProgressBar';
 
 class SelectedTour extends Component {
@@ -101,8 +102,14 @@ class SelectedTour extends Component {
             );
         } else {
             return (
-                <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioPlay(url)}>
-                    <Image style={styles.audioImg} source={require('../assets/img/audioPlay.png')} />
+                <TouchableOpacity style={styles.svgAudioImg} onPress={() => this._audioPlay(url)}>
+                    <Svg height="24" width="24">
+                            <Path d="M10.396 18.433c2.641-2.574 6.604-6.433 6.604-6.433s-3.963-3.859-6.604-6.433c-0.363-0.349-0.853-0.567-1.396-0.567-1.104 0-2 0.896-2 2v10c0 1.104 0.896 2 2 2 0.543 0 1.033-0.218 1.396-0.567z"
+                                fill='#ffffff'
+                                stroke='#009FB7'
+                                stokeWidth={5}>
+                            </Path>
+                        </Svg>
                 </TouchableOpacity>
             );
         }
@@ -318,6 +325,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+    svgAudioImg: {
+        borderColor: 'black',
+        borderWidth: 2
+    },
     audioProgressBarBox: {
         flex: .1,
         display: 'flex',
@@ -347,6 +358,8 @@ const mapStateToProps = state => {
         error: state.audio.error
     }
 }
+
+//<Image style={styles.audioImg} source={require('../assets/img/audioPlay.png')} />
 
 export default connect(mapStateToProps, { 
     audioPlaying, 
