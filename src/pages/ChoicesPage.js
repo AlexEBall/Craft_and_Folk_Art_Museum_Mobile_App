@@ -6,7 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 export default class ChoicesPage extends Component {
     render() {
         return (
-            <LinearGradient colors={['#f4a93f', '#f08433']} style={styles.LinearGradient}>
+            <LinearGradient colors={['#f08433', '#f4a93f']} style={styles.LinearGradient}>
                 <View style={styles.container}>
                     <Text>Hello</Text>
                 </View>
@@ -24,11 +24,11 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     container: {
-        flex: .5,
+        flex: .7,
         justifyContent: 'center',
         alignItems: 'center',
         width: 280,
-        height: 300,
+        // height: 300,
         borderRadius: 20,
         backgroundColor: '#fff'
     }
