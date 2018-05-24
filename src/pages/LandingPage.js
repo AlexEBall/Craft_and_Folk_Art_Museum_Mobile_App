@@ -5,7 +5,7 @@ import Button from '../components/Button';
 
 export default class LandingPage extends Component {
     onGuestPress() {
-        Actions.tours();
+        Actions.choices();
     }
     render() {
         return (
