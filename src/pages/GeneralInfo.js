@@ -14,6 +14,8 @@ export default class GeneralInfo extends Component {
     render() {
         return (
             <View style={styles.infoContainer}>
+
+
                 <View style={styles.admissions}>
                     <View style={styles.header}>
                         <Text style={styles.title}>Admissions</Text>
@@ -21,13 +23,11 @@ export default class GeneralInfo extends Component {
                             <Svg height="34" width="34">
                                 <Path d="M32 30v-2h-2v-12h2v-2h-6v2h2v12h-6v-12h2v-2h-6v2h2v12h-6v-12h2v-2h-6v2h2v12h-6v-12h2v-2h-6v2h2v12h-2v2h-2v2h34v-2h-2z"
                                 fill='#009FB7'
-                                stroke='#009FB7'
-                                stokeWidth={5}>
+                                stroke='#009FB7'>
                                 </Path>
                                 <Path d="M16 0h2l16 10v2h-34v-2l16-10z"
                                 fill='#009FB7'
-                                stroke='#009FB7'
-                                stokeWidth={5}>
+                                stroke='#009FB7'>
                                 </Path>
                             </Svg>
                         </View>
@@ -40,10 +40,33 @@ export default class GeneralInfo extends Component {
                         <Text>Sundays: FREE</Text>
                     </View>
                 </View>
+
+
                 <View style={styles.hours}>
+                    <View style={styles.header}>
+                        <Text style={styles.title}>Hours</Text>
+                        <View style={styles.icon}>
+                            <Svg height="32" width="32">
+                                <Path d="M20.586 23.414l-6.586-6.586v-8.828h4v7.172l5.414 5.414zM16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 28c-6.627 0-12-5.373-12-12s5.373-12 12-12c6.627 0 12 5.373 12 12s-5.373 12-12 12z"
+                                fill='#009FB7'
+                                stroke='#009FB7'>
+                                </Path>
+                            </Svg>
+                        </View>
+                    </View>
+                    <View style={styles.info}>
+                        <Text>Monday: Closed</Text>
+                        <Text>Tuesday - Friday: 11 am - 5 pm</Text>
+                        <Text>Saturday & Sunday: 11 am - 6 pm</Text>
+                        <Text>The first Thursday of every month: 6:30 pm - 9:30 pm</Text>
+                    </View>
                 </View>
+
+
                 <View style={styles.parking}>
                 </View>
+
+
                 <View style={styles.map}>
                 </View>
             </View>
