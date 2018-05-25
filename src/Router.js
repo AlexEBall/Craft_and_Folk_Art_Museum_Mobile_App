@@ -16,8 +16,10 @@ const RouterComponent = () => {
                     <Scene key="choices" component={ChoicesPage} hideNavBar={false} title={'CAFAM'}
                             navigationBarStyle={{ backgroundColor: '#F4A93f'}}
                             renderBackButton={() => <View/>}/>
-                    <Scene key="tours" component={Tours} />
-                    <Scene key="tour" component={Tour} hideNavBar={false} title={'CAFAM Tours'} 
+                    <Scene key="tours" component={Tours} hideNavBar={false} title={'CAFAM Exhibitions'} 
+                            navigationBarStyle={{ backgroundColor: '#F4A93F' }} 
+                            backTitle=" "/>
+                    <Scene key="tour" component={Tour} hideNavBar={false} title={'CAFAM Tour'} 
                             navigationBarStyle={{ backgroundColor: '#F4A93F' }}/>
                 </Scene>
             </Lightbox>

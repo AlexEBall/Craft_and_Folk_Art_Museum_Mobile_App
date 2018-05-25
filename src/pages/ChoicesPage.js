@@ -1,15 +1,31 @@
 import React, {Component} from 'react';
-import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, Image, StyleSheet, TouchableOpacity, Linking} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default class ChoicesPage extends Component {
-    
+
+    onExhibitionsPress = () => {
+        Actions.tours();
+    }
+
+    onGeneralInfoPress = () => {
+        
+    }
+
+    onProgramsPress = () => {
+        
+    }
+
+    onShopPress = () => {
+        Linking.openURL('http://www.cafamshop.org/')
+    }
+
     render() {
         return (
             <LinearGradient colors={['#f08433', '#f4a93f']} style={styles.LinearGradient}>
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.buttonStyle}>
+                    <TouchableOpacity style={styles.buttonStyle} onPress={this.onExhibitionsPress.bind(this)}>
                         <LinearGradient style={styles.textContainer}
                             start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
                             locations={[0,0.5,0.6]}
@@ -17,7 +33,7 @@ export default class ChoicesPage extends Component {
                             <Text style={styles.textStyle}>Exhibitions</Text>
                         </LinearGradient>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonStyle}>
+                    <TouchableOpacity style={styles.buttonStyle} onPress={this.onGeneralInfoPress.bind(this)}>
                         <LinearGradient style={styles.textContainer}
                             start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
                             locations={[0,0.5,0.6]}
@@ -25,7 +41,7 @@ export default class ChoicesPage extends Component {
                             <Text style={styles.textStyle}>General Info</Text>
                         </LinearGradient>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonStyle}>
+                    <TouchableOpacity style={styles.buttonStyle} onPress={this.onProgramsPress.bind(this)}>
                         <LinearGradient style={styles.textContainer}
                             start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
                             locations={[0,0.5,0.6]}
@@ -33,7 +49,7 @@ export default class ChoicesPage extends Component {
                             <Text style={styles.textStyle}>Programs</Text>
                         </LinearGradient>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonStyle}>
+                    <TouchableOpacity style={styles.buttonStyle} onPress={this.onShopPress.bind(this)}>
                         <LinearGradient style={styles.textContainer}
                             start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
                             locations={[0,0.5,0.6]}
