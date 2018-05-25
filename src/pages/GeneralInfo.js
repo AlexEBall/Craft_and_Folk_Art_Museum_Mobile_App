@@ -5,15 +5,15 @@ import {
     Image,
     StyleSheet,
     TouchableOpacity,
-    Linking
+    Linking,
+    ScrollView
 } from 'react-native';
 import Svg, {Path} from 'react-native-svg';
-// import LinearGradient from 'react-native-linear-gradient';
 
 export default class GeneralInfo extends Component {
     render() {
         return (
-            <View style={styles.infoContainer}>
+            <ScrollView style={styles.infoContainer}>
 
 
                 <View style={styles.admissions}>
@@ -64,12 +64,32 @@ export default class GeneralInfo extends Component {
 
 
                 <View style={styles.parking}>
+                    <View style={styles.header}>
+                        <Text style={styles.title}>Parking</Text>
+                        <View style={styles.icon}>
+                            <Svg height="32" width="32">
+                                <Path d="M7.5 17c0-1.375-1.125-2.5-2.5-2.5s-2.5 1.125-2.5 2.5 1.125 2.5 2.5 2.5 2.5-1.125 2.5-2.5zM8.062 12h15.875l-1.391-5.578c-0.047-0.172-0.359-0.422-0.547-0.422h-12c-0.187 0-0.5 0.25-0.547 0.422zM29.5 17c0-1.375-1.125-2.5-2.5-2.5s-2.5 1.125-2.5 2.5 1.125 2.5 2.5 2.5 2.5-1.125 2.5-2.5zM32 15.5v6c0 0.281-0.219 0.5-0.5 0.5h-1.5v2c0 1.656-1.344 3-3 3s-3-1.344-3-3v-2h-16v2c0 1.656-1.344 3-3 3s-3-1.344-3-3v-2h-1.5c-0.281 0-0.5-0.219-0.5-0.5v-6c0-1.937 1.563-3.5 3.5-3.5h0.438l1.641-6.547c0.484-1.969 2.391-3.453 4.422-3.453h12c2.031 0 3.938 1.484 4.422 3.453l1.641 6.547h0.438c1.937 0 3.5 1.563 3.5 3.5z"
+                                fill='#009FB7'
+                                stroke='#009FB7'>
+                                </Path>
+                            </Svg>
+                        </View>
+                    </View>
+                    <View style={styles.info}>
+                        <Text style={{ marginBottom: 2 }}>$5 parking is available on Saturday & Sunday only from 7am - 8pm 
+                            just for CAFAM visitors! Make sure to pick up your validation coupon 
+                            from the admission desk after your visit.</Text>
+                        <Text style={{ marginBottom: 2 }}>5750 Courtyard Place Los Angeles, CA 90036</Text>
+                        <Text style={{ marginBottom: 2 }}>Enter from Wilshire Blvd. at Courtyard Place (between Masselin and Curson). 
+                            Structure will be on the right.</Text>
+                        <Text>There is two hour street parking within a block of CAFAM as well.</Text>
+                    </View>
                 </View>
 
 
                 <View style={styles.map}>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }
@@ -81,24 +101,22 @@ const styles = StyleSheet.create({
     },
     admissions: {
         flex: 1,
-        borderWidth: 2,
-        borderColor: 'black',
-        display: 'flex',
+        display: 'flex'
     },
     hours: {
         flex: 1,
-        borderWidth: 2,
-        borderColor: 'black'
+        display: 'flex'
     },
     parking: {
         flex: 1,
-        borderWidth: 2,
-        borderColor: 'black'
+        display: 'flex'
     },
     map: {
         flex: 1,
+        display: 'flex',
         borderWidth: 2,
-        borderColor: 'black'
+        borderColor: 'black',
+        height: 300
     },
     header: {
         flex: .3,
@@ -106,7 +124,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 3
+        padding: 3,
+        borderBottomWidth: 2,
+        borderColor: '#009FB7'
     },
     info: {
         flex: .7,
