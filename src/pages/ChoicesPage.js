@@ -10,7 +10,7 @@ export default class ChoicesPage extends Component {
     }
 
     onGeneralInfoPress = () => {
-        
+        Actions.generalInfo();
     }
 
     onProgramsPress = () => {

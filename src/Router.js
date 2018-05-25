@@ -5,6 +5,8 @@ import {Actions, Scene, Router, Lightbox} from 'react-native-router-flux';
 import LandingPage from './pages/LandingPage';
 import ChoicesPage from './pages/ChoicesPage';
 import Exhibitions from './pages/Exhibitions';
+import GeneralInfo from './pages/GeneralInfo';
+import Programs from './pages/Programs';
 import Tour from './pages/Tour';
 
 const RouterComponent = () => {
@@ -19,6 +21,12 @@ const RouterComponent = () => {
                     <Scene key="tours" component={Exhibitions} hideNavBar={false} title={'CAFAM Exhibitions'} 
                             navigationBarStyle={{ backgroundColor: '#F4A93F' }} 
                             backTitle=" "/>
+                    <Scene key="generalInfo" component={GeneralInfo} hideNavBar={false} title={'General Information'} 
+                            navigationBarStyle={{ backgroundColor: '#F4A93F' }} 
+                            backTitle=" " />
+                    <Scene key="programs" component={Programs} hideNavBar={false} title={'General Information'} 
+                            navigationBarStyle={{ backgroundColor: '#F4A93F' }} 
+                            backTitle=" " />
                     <Scene key="tour" component={Tour} hideNavBar={false} title={'CAFAM Tour'} 
                             navigationBarStyle={{ backgroundColor: '#F4A93F' }}/>
                 </Scene>
