@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import {Actions, Scene, Router, Lightbox} from 'react-native-router-flux';
 import LandingPage from './pages/LandingPage';
 import ChoicesPage from './pages/ChoicesPage';
-import Tours from './pages/Tours';
+import Exhibitions from './pages/Exhibitions';
 import Tour from './pages/Tour';
 
 const RouterComponent = () => {
@@ -16,7 +16,7 @@ const RouterComponent = () => {
                     <Scene key="choices" component={ChoicesPage} hideNavBar={false} title={'CAFAM'}
                             navigationBarStyle={{ backgroundColor: '#F4A93f'}}
                             renderBackButton={() => <View/>}/>
-                    <Scene key="tours" component={Tours} hideNavBar={false} title={'CAFAM Exhibitions'} 
+                    <Scene key="tours" component={Exhibitions} hideNavBar={false} title={'CAFAM Exhibitions'} 
                             navigationBarStyle={{ backgroundColor: '#F4A93F' }} 
                             backTitle=" "/>
                     <Scene key="tour" component={Tour} hideNavBar={false} title={'CAFAM Tour'} 

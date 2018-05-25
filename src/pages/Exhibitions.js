@@ -5,7 +5,8 @@ import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import TourBox from '../components/TourBox';
 import Spinner from '../components/Spinner';
 
-class Tours extends Component {
+class Exhibitions extends Component {
+
     componentWillMount = () => {
         this.props.fetchTourData();
     }
@@ -31,7 +32,6 @@ class Tours extends Component {
 
         return (
             <View style={styles.container}>
-                <View style={styles.headerFixed} /> 
                 <View style={styles.toursContainer}>
                     <ScrollView>
                         {this.renderTourBox()}
@@ -47,13 +47,8 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column'
     },
-    headerFixed: {
-        flex: .1,
-        backgroundColor: '#F4A93F'
-
-    },
     toursContainer: {
-        flex: .9,
+        flex: 1,
         backgroundColor: '#ffffff',
     }
 });
@@ -67,4 +62,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchTourData })(Tours);
+export default connect(mapStateToProps, { fetchTourData })(Exhibitions);
