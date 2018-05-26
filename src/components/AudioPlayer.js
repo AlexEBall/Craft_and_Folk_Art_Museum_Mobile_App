@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import {
     Text,
     View,
-    Image,
-    ImageBackground,
     StyleSheet,
-    ScrollView,
     TouchableOpacity
 } from 'react-native';
 import {connect} from 'react-redux';
@@ -15,8 +12,7 @@ import {
     audioError,
     audioPaused,
     audioSetTime,
-    audioCurrentTime,
-    audioPlayerViewWidth
+    audioCurrentTime
 } from '../actions';
 import AudioPlayer from 'react-native-play-audio';
 import Svg, {Path} from 'react-native-svg';
@@ -173,16 +169,6 @@ class AudioPlayerComponent extends Component {
         }
     }
 
-    // _findDimensions = (layout) => {
-    //     const {x, y, width, height} = layout;
-    //     console.log(x);
-    //     console.log(y);
-    //     console.log(width);
-    //     console.log(height);
-
-    //     this.props.audioPlayerViewWidth(width);
-    // }
-
     componentWillUnmount = () => {
         this.props.audioCurrentTime(0);
         this.props.audioPlaying(false);
@@ -196,6 +182,7 @@ class AudioPlayerComponent extends Component {
 
     render() {
         const url = this.props.url;
+        console.log('AudioPlayer --------- ', AudioPlayer);
 
         return (
             <View style={styles.selectedTourAudioInfoBox}>
@@ -236,14 +223,9 @@ class AudioPlayerComponent extends Component {
 const styles = StyleSheet.create({
     selectedTourAudioInfoBox: {
         flex: 1,
-
-        // backgroundColor: 'red',
-
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-
-        // for separation
         marginTop: 10
     },
     // TITLE STYLING
@@ -301,7 +283,6 @@ const mapStateToProps = state => {
         isPaused: state.audio.isPaused,
         setTime: state.audio.setTime,
         currentTime: state.audio.currentTime,
-        viewWidth: state.audio.viewWidth,
         error: state.audio.error
     }
 }
@@ -313,5 +294,4 @@ export default connect(mapStateToProps, {
     audioPaused,
     audioSetTime,
     audioCurrentTime,
-    audioPlayerViewWidth
 })(AudioPlayerComponent);
