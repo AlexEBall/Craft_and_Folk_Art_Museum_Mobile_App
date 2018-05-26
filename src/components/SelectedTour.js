@@ -97,13 +97,23 @@ class SelectedTour extends Component {
         if (this.props.isPlaying === true) {
             return (
                 <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioPause(url)}>
-                    <Image style={styles.audioImg} source={require('../assets/img/audioPause.png')} />
+                    <Svg height={32} width={32}>
+                        <Path d="M4 4h10v24h-10zM18 4h10v24h-10z"
+                            fill='#009FB7'
+                            stroke='#009FB7'>
+                        </Path>
+                    </Svg>
                 </TouchableOpacity>
             );
         } else {
             return (
                 <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioPlay(url)}>
-                    <Image style={styles.audioImg} source={require('../assets/img/audioPlay.png')} />
+                    <Svg height={32} width={32}>
+                        <Path d="M6 4l20 12-20 12z"
+                            fill='#009FB7'
+                            stroke='#009FB7'>
+                        </Path>
+                    </Svg>
                 </TouchableOpacity>
             );
         }
@@ -113,13 +123,23 @@ class SelectedTour extends Component {
         if (this.props.currentTime < 10 || this.props.currentTime === this.props.totalTime) {
             return (
             <TouchableOpacity style={styles.audioBtn} disabled={true} onPress={() => this._audioRewind(url)}>
-                <Image style={styles.audioImg} source={require('../assets/img/10sec_backward-256.png')} />
+                <Svg height={32} width={32}>
+                    <Path d="M18 5v10l10-10v22l-10-10v10l-11-11z"
+                        fill='#4D4D4D'
+                        stroke='#4D4D4D'>
+                    </Path>
+                </Svg>
             </TouchableOpacity>
             );
         } else {
             return (
             <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioRewind(url)}>
-                <Image style={styles.audioImg} source={require('../assets/img/10sec_backward-256.png')} />
+                <Svg height={32} width={32}>
+                    <Path d="M18 5v10l10-10v22l-10-10v10l-11-11z"
+                        fill='#009FB7'
+                        stroke='#009FB7'>
+                    </Path>
+                </Svg>
             </TouchableOpacity>
             );
         }
@@ -131,13 +151,23 @@ class SelectedTour extends Component {
         if (this.props.currentTime > (this.props.totalTime - 10)) {
             return (
             <TouchableOpacity style={styles.audioBtn} disabled={true} onPress={() => this._audioForward(url)}>
-                <Image style={styles.audioImg} source={require('../assets/img/10sec_forward-128.png')} />
+                <Svg height={32} width={32}>
+                    <Path d="M16 27v-10l-10 10v-22l10 10v-10l11 11z"
+                        fill='#4D4D4D'
+                        stroke='#4D4D4D'>
+                    </Path>
+                </Svg>
             </TouchableOpacity>
             );
         } else {
             return (
             <TouchableOpacity style={styles.audioBtn} onPress={() => this._audioForward(url)}>
-                <Image style={styles.audioImg} source={require('../assets/img/10sec_forward-128.png')} />
+                <Svg height={32} width={32}>
+                    <Path d="M16 27v-10l-10 10v-22l10 10v-10l11 11z"
+                        fill='#009FB7'
+                        stroke='#009FB7'>
+                    </Path>
+                </Svg>
             </TouchableOpacity>
             );
         }
@@ -178,7 +208,7 @@ class SelectedTour extends Component {
 
         return (
             <View style={styles.selectedTour} onLayout={(event) => { this._findDimensions(event.nativeEvent.layout) }}>
-                
+
                 <View style={styles.imgArea}>
                     <ScrollView horizontal={true}>
                         <View style={styles.tourImgBox}>
@@ -188,18 +218,16 @@ class SelectedTour extends Component {
                 </View>
 
                 <View style={styles.selectedTourAudioInfoBox}>
+                    <View style={styles.audioTitleBox}>
+                        <Text style={styles.audioTitle}>
+                            Bamboo: A Japanese Perspective
+                        </Text>
+                    </View>
                     <View style={styles.audioControls}>
-                        <View style={styles.audioBtnBoxRewind}>
-                            {this.audioRewindTouchableToggle(url)}
-                        </View>
                         <View style={styles.audioBtnBox}>
                             {this.audioPlayPauseToggle(url)}
                         </View>
-                        <View style={styles.audioBtnBoxForward}>
-                            {this.audioForwardTouchableToggle(url)}
-                        </View>
-                    </View>
-                    <View style={styles.audioProgressBarBox}>
+                        <View style={styles.audioProgressBarBox}>
                         <ProgressBar
                             row
                             progress={this.props.currentTime}
@@ -211,9 +239,24 @@ class SelectedTour extends Component {
                             borderRadius={10}
                             maxValue={this.props.totalTime}
                         />
+                        </View>
+                        <View style={styles.audioBtnBox}>
+                            {this.audioRewindTouchableToggle(url)}
+                        </View>
+                        <View style={styles.audioBtnBox}>
+                            {this.audioForwardTouchableToggle(url)}
+                        </View>
                     </View>
                 </View>
-                
+
+                <View style={styles.moreInfoBox}>
+                    <TouchableOpacity style={styles.infoBtn}>
+                        <Text style={styles.infoText}>
+                            Learn More
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+
             </View>
         );
     }
@@ -232,22 +275,25 @@ const styles = StyleSheet.create({
 
     // 3 PARTS OF CONTAINER
     imgArea: {
-        flex: .7,
+        flex: 1,
         borderWidth: 2,
         borderColor: 'black'
     },
     selectedTourAudioInfoBox: {
-        flex: .2,
+        flex: .3,
 
-        backgroundColor: 'red',
+        // backgroundColor: 'red',
 
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
 
         // for separation
-        marginTop: 10,
-        marginBottom: 10
+        marginTop: 10
+    },
+    moreInfoBox: {
+        flex: .2, 
+        marginTop: 5
     },
 
     // IMG STYLING 
@@ -259,79 +305,68 @@ const styles = StyleSheet.create({
     },
     selectedTourImg: {
         flex: 1,
-        backgroundColor: 'lightblue',
+        // backgroundColor: 'lightblue',
         height: null,
         width: null,
         margin: 5
     },
 
+    // TITLE STYLING
+    audioTitleBox: {
+        flex: .2,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    audioTitle: {
+        fontSize: 18,
+        fontWeight: '400'
+    },
     // AUDIO CONTROL STYLING
     audioControls: {
         flex: .8,
         display: 'flex',
         flexDirection: 'row',
-        backgroundColor: 'purple'
+        // backgroundColor: 'purple'
     },
-    // refactor to just one
     audioBtnBox: {
-        flex: 1,
-        padding: 20,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    audioBtnBoxForward: {
-        flex: 1,
-        padding: 20,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    audioBtnBoxRewind: {
-        flex: 1,
-        padding: 20,
+        flex: .2,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
     },
     audioBtn: {
         backgroundColor: 'lightblue',
-        padding: 20,
+        padding: 5,
         borderRadius: 50,
-        height: 60,
-        width: 60,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    audioImg: {
-        padding: 10,
-        height: 70,
-        width: 70,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    svgAudioImg: {
-        borderColor: 'black',
-        borderWidth: 2
     },
     audioProgressBarBox: {
-        flex: .1,
+        flex: .7,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        backgroundColor: 'green'
+        alignItems: 'center',
+        marginRight: 5,
+        marginLeft: 5,
+        paddingRight: 5,
+        paddingLeft: 5,
+        // backgroundColor: 'green'
     },
     audioProgressBar: {
         flex: 1
     },
 
-    // TEXT BOX STYLING 
-    selectedTourText: {
-        fontSize: 24,
-        padding: 10
+    infoBtn: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'pink',
+        marginTop: 10,
+        marginBottom: 10,
+        borderRadius: 10,
+        borderWidth: 3,
+        borderColor: 'teal'
     }
+
 });
 
 const mapStateToProps = state => {
@@ -348,7 +383,7 @@ const mapStateToProps = state => {
 
 //<Image style={styles.audioImg} source={require('../assets/img/audioPlay.png')} />
 
-{/* <Svg height="24" width="24">
+{/* <Svg height="32" width="32">
     <Path d="M10.396 18.433c2.641-2.574 6.604-6.433 6.604-6.433s-3.963-3.859-6.604-6.433c-0.363-0.349-0.853-0.567-1.396-0.567-1.104 0-2 0.896-2 2v10c0 1.104 0.896 2 2 2 0.543 0 1.033-0.218 1.396-0.567z"
         fill='#ffffff'
         stroke='#009FB7'
