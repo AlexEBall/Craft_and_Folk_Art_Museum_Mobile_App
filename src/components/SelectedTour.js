@@ -235,7 +235,7 @@ class SelectedTour extends Component {
                             borderColor={'#ffffff'}
                             fillColor={'white'}
                             barColor={'#009FB7'}
-                            borderWidth={1}
+                            borderWidth={0}
                             borderRadius={10}
                             maxValue={this.props.totalTime}
                         />
@@ -275,9 +275,7 @@ const styles = StyleSheet.create({
 
     // 3 PARTS OF CONTAINER
     imgArea: {
-        flex: 1,
-        borderWidth: 2,
-        borderColor: 'black'
+        flex: 1
     },
     selectedTourAudioInfoBox: {
         flex: .3,
@@ -301,7 +299,7 @@ const styles = StyleSheet.create({
         flex: 1,
         display: 'flex',
         flexDirection: 'row',
-        width: 1000
+        width: 950
     },
     selectedTourImg: {
         flex: 1,
@@ -316,10 +314,12 @@ const styles = StyleSheet.create({
         flex: .2,
         justifyContent: 'center',
         alignItems: 'center',
+        borderBottomWidth: 2,
+        borderBottomColor: 'black'
     },
     audioTitle: {
         fontSize: 18,
-        fontWeight: '400'
+        fontWeight: '400',
     },
     // AUDIO CONTROL STYLING
     audioControls: {
@@ -335,7 +335,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     audioBtn: {
-        backgroundColor: 'lightblue',
+        // backgroundColor: 'lightblue',
         padding: 5,
         borderRadius: 50,
     },
@@ -352,7 +352,8 @@ const styles = StyleSheet.create({
         // backgroundColor: 'green'
     },
     audioProgressBar: {
-        flex: 1
+        flex: 1,
+        // borderColor: 'black'
     },
 
     infoBtn: {
@@ -365,6 +366,11 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 3,
         borderColor: 'teal'
+    },
+    infoText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: 'white',
     }
 
 });

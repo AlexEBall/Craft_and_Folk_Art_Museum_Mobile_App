@@ -37,7 +37,7 @@ export default class ProgressBar extends Component {
     })
 
     return (
-      <View style={[{flexDirection: "row", height }, row ? { flex: 1} : undefined ]}>
+      <View style={[{borderWidth: 2, borderColor: '#4D4D4D', borderRadius: 10, flexDirection: "row", height }, row ? { flex: 1} : undefined ]}>
         <View style={{ flex: 1, borderColor, borderWidth, borderRadius}}>
           <View
             style={[StyleSheet.absoluteFill, { backgroundColor: fillColor }]}
