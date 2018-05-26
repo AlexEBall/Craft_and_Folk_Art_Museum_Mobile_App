@@ -76,11 +76,11 @@ export default class GeneralInfo extends Component {
                         </View>
                     </View>
                     <View style={styles.info}>
-                        <Text style={{ marginBottom: 2 }}>$5 parking is available on Saturday & Sunday only from 7am - 8pm 
+                        <Text style={{ marginBottom: 8 }}>$5 parking is available on Saturday & Sunday only from 7am - 8pm 
                             just for CAFAM visitors! Make sure to pick up your validation coupon 
                             from the admission desk after your visit.</Text>
-                        <Text style={{ marginBottom: 2 }}>5750 Courtyard Place Los Angeles, CA 90036</Text>
-                        <Text style={{ marginBottom: 2 }}>Enter from Wilshire Blvd. at Courtyard Place (between Masselin and Curson). 
+                        <Text style={{ marginBottom: 8 }}>5750 Courtyard Place Los Angeles, CA 90036</Text>
+                        <Text style={{ marginBottom: 4 }}>Enter from Wilshire Blvd. at Courtyard Place (between Masselin and Curson). 
                             Structure will be on the right.</Text>
                         <Text>There is two hour street parking within a block of CAFAM as well.</Text>
                     </View>

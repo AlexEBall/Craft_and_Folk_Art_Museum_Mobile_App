@@ -177,23 +177,17 @@ class SelectedTour extends Component {
         const url = this.props.audioLinkName;
 
         return (
-            <View style={styles.selectedTour}>
+            <View style={styles.selectedTour} onLayout={(event) => { this._findDimensions(event.nativeEvent.layout) }}>
                 
-                <ScrollView horizontal={true}>
-                    <View style={styles.tourImgBox}>
-                        {this.renderImages()}
-                    </View>
-                </ScrollView>
+                <View style={styles.imgArea}>
+                    <ScrollView horizontal={true}>
+                        <View style={styles.tourImgBox}>
+                            {this.renderImages()}
+                        </View>
+                    </ScrollView>
+                </View>
 
-                <ScrollView>
-                    <View style={styles.selectedTourTextBox}>
-                        <Text style={styles.selectedTourText}>
-                            {this.props.tourText}
-                        </Text>
-                    </View>
-                </ScrollView>
-
-                <View style={styles.selectedTourAudioInfoBox} onLayout={(event) => { this._findDimensions(event.nativeEvent.layout) }}>
+                <View style={styles.selectedTourAudioInfoBox}>
                     <View style={styles.audioControls}>
                         <View style={styles.audioBtnBoxRewind}>
                             {this.audioRewindTouchableToggle(url)}
@@ -237,30 +231,32 @@ const styles = StyleSheet.create({
     },
 
     // 3 PARTS OF CONTAINER
-    tourImgBox: {
-        flex: 1.5,
-        display: 'flex',
-        flexDirection: 'row',
-        // height: 250,
-        width: 600
-        // margin: 5
+    imgArea: {
+        flex: .7,
+        borderWidth: 2,
+        borderColor: 'black'
     },
     selectedTourAudioInfoBox: {
-        flex: .5,
-        backgroundColor: '#ffffff',
+        flex: .2,
+
+        backgroundColor: 'red',
+
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center'
-    },
-    selectedTourTextBox: {
-        flex: 1,
-        backgroundColor: 'white',
-        borderTopColor: '#009FB7',
-        borderTopWidth: 2
+        justifyContent: 'center',
+
+        // for separation
+        marginTop: 10,
+        marginBottom: 10
     },
 
     // IMG STYLING 
+    tourImgBox: {
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'row',
+        width: 1000
+    },
     selectedTourImg: {
         flex: 1,
         backgroundColor: 'lightblue',
@@ -279,7 +275,6 @@ const styles = StyleSheet.create({
     // refactor to just one
     audioBtnBox: {
         flex: 1,
-        backgroundColor: 'skyblue',
         padding: 20,
         display: 'flex',
         alignItems: 'center',
@@ -287,7 +282,6 @@ const styles = StyleSheet.create({
     },
     audioBtnBoxForward: {
         flex: 1,
-        backgroundColor: 'skyblue',
         padding: 20,
         display: 'flex',
         alignItems: 'center',
@@ -295,7 +289,6 @@ const styles = StyleSheet.create({
     },
     audioBtnBoxRewind: {
         flex: 1,
-        backgroundColor: 'skyblue',
         padding: 20,
         display: 'flex',
         alignItems: 'center',
@@ -362,6 +355,19 @@ const mapStateToProps = state => {
         stokeWidth={5}>
     </Path>
 </Svg> */}
+
+{/* < ScrollView > <View style={styles.selectedTourTextBox}>
+    <Text style={styles.selectedTourText}>
+        {this.props.tourText}
+    </Text>
+</View> < /ScrollView> */}
+
+   // selectedTourTextBox: {
+    //     flex: 1,
+    //     backgroundColor: 'white',
+    //     borderTopColor: '#009FB7',
+    //     borderTopWidth: 2
+    // },
 
 export default connect(mapStateToProps, { 
     audioPlaying, 
