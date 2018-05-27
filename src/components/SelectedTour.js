@@ -109,12 +109,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'pink',
-        marginTop: 10,
-        marginBottom: 10,
-        borderRadius: 10,
-        borderWidth: 3,
-        borderColor: 'teal'
+        backgroundColor: '#f4a93f',
+        marginTop: 10
     },
     infoText: {
         fontSize: 24,

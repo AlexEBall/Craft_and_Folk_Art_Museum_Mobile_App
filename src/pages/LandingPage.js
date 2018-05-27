@@ -19,7 +19,7 @@ export default class LandingPage extends Component {
                     </View>
                     <View style={styles.enter}>
                         <TouchableOpacity style={styles.enterBtn} onPress={this.onGuestPress.bind(this)}>
-                            <Text style={styles.enterText}>Enter</Text>
+                            <Text style={styles.enterText}>Continue</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
     enter: {
         flex : .3,
         flexDirection : 'row',
-        // justifyContent : 'space-around',
         alignItems : 'flex-end'
     },
     enterBtn: {
@@ -67,10 +66,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        backgroundColor: '#fff'
+        backgroundColor: '#f4a93f'
     },
     enterText: {
         fontSize: 24,
-        color: 'red'
+        fontWeight: '700',
+        color: 'white'
     }
 });

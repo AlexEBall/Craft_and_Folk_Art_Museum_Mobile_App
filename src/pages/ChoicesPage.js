@@ -23,7 +23,7 @@ export default class ChoicesPage extends Component {
 
     render() {
         return (
-            <LinearGradient colors={['#f08433', '#f4a93f']} style={styles.LinearGradient}>
+            <LinearGradient colors={['#f4a93f','#f08433']} style={styles.LinearGradient}>
                 <View style={styles.container}>
                     <TouchableOpacity style={styles.buttonStyle} onPress={this.onExhibitionsPress.bind(this)}>
                         <LinearGradient style={styles.textContainer}
