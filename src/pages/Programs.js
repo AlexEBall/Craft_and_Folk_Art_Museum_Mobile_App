@@ -25,6 +25,8 @@ export default class Programs extends Component {
         return (
             <View style={styles.container} onLayout={(event) => { this._findDimensions(event.nativeEvent.layout) }}>
 
+                <ScrollView>
+
                 <View style={styles.card}>
                     <View style={styles.mainImg}>
                         <ImageBackground 
@@ -51,6 +53,33 @@ export default class Programs extends Component {
                     </View>
                 </View>
 
+                <View style={styles.card}>
+                    <View style={styles.mainImg}>
+                        <ImageBackground 
+                            style={styles.img}
+                            source={require('../assets/img/embroid.jpg')}
+                            resizeMode='cover' >
+                            <View style={styles.priceBox}>
+                                <Text style={styles.price}>
+                                    $90
+                                </Text>
+                            </View>
+                        </ImageBackground>
+                    </View>
+                    <View style={styles.infoBox}>
+                        <View style={styles.infoBoxTitle}>
+                            <Text style={styles.title}>Cyanotypes with Meg Madison: A CraftLab Family Workshop!</Text>
+                        </View>
+                        <View style={styles.infoBoxTime}>
+                            <Text style={styles.time}>Sunday, June 17. 2:00pm–4:00pm</Text>
+                        </View>
+                        <View style={styles.infoBoxDescription}>
+                            <Text style={styles.description}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum id aliquam sapiente, deleniti suscipit quaerat? Explicabo blanditiis placeat sint asperiores, harum aliquam, omnis repudiandae, rerum qui aut nostrum. Ullam, ratione.</Text>
+                        </View>
+                    </View>
+                </View>
+
+                </ScrollView>
             </View>
         );
     }
@@ -59,7 +88,7 @@ export default class Programs extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'pink',
+        backgroundColor: '#fff',
         display: 'flex',
         justifyContent: 'center',
         // alignItems: 'center'
@@ -71,6 +100,13 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         // alignItems: 'center'
+        height: 580,
+        borderBottomWidth: 2,
+        borderBottomColor: '#f7f7f7',
+        shadowColor: '#000',
+		shadowOffset: { width: 1, heigh: 1 },
+        shadowOpacity: 0.6,
+        marginBottom: 12
     }, 
     mainImg: {
         flex: .5,
