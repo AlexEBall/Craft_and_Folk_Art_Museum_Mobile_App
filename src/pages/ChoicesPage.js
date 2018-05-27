@@ -24,44 +24,22 @@ export default class ChoicesPage extends Component {
     render() {
         return (
             <LinearGradient colors={['#f4a93f','#f08433']} style={styles.LinearGradient}>
-                <View style={styles.overAllContainer}>
-                    <View style={styles.textBoxContaier}>
-                        <Text style={styles.titleText}>What would you like to do?</Text>
-                    </View>
-                    <View style={styles.container}>
-                        <TouchableOpacity style={styles.buttonStyle} onPress={this.onExhibitionsPress.bind(this)}>
-                            <LinearGradient style={styles.textContainer}
-                                start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
-                                locations={[0,0.5,0.6]}
-                                colors={['#f08433', '#f4a93f', '#f9d24e']}>
-                                <Text style={styles.textStyle}>Exhibitions</Text>
-                            </LinearGradient>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.buttonStyle} onPress={this.onGeneralInfoPress.bind(this)}>
-                            <LinearGradient style={styles.textContainer}
-                                start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
-                                locations={[0,0.5,0.6]}
-                                colors={['#f08433', '#f4a93f', '#f9d24e']}>
-                                <Text style={styles.textStyle}>General Info</Text>
-                            </LinearGradient>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.buttonStyle} onPress={this.onProgramsPress.bind(this)}>
-                            <LinearGradient style={styles.textContainer}
-                                start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
-                                locations={[0,0.5,0.6]}
-                                colors={['#f08433', '#f4a93f', '#f9d24e']}>
-                                <Text style={styles.textStyle}>Programs</Text>
-                            </LinearGradient>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.buttonStyle} onPress={this.onShopPress.bind(this)}>
-                            <LinearGradient style={styles.textContainer}
-                                start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
-                                locations={[0,0.5,0.6]}
-                                colors={['#f08433', '#f4a93f', '#f9d24e']}>
-                                <Text style={styles.textStyle}>Shop</Text>
-                            </LinearGradient>
-                        </TouchableOpacity>
-                    </View>
+                <View style={styles.textBoxContainer}>
+                    <Image source={require('../assets/img/logo-white.png')} />
+                </View>
+                <View style={styles.buttonsContainer}>
+                    <TouchableOpacity style={styles.buttonStyle} onPress={this.onExhibitionsPress.bind(this)}>
+                            <Text style={styles.textStyle}>Exhibitions</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonStyle1} onPress={this.onGeneralInfoPress.bind(this)}>
+                            <Text style={styles.textStyle}>General Info</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonStyle2} onPress={this.onProgramsPress.bind(this)}>
+                            <Text style={styles.textStyle}>Programs</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonStyle3} onPress={this.onShopPress.bind(this)}>
+                            <Text style={styles.textStyle}>Shop</Text>
+                    </TouchableOpacity>
                 </View>
             </LinearGradient>
         );
@@ -73,44 +51,67 @@ const styles = StyleSheet.create({
         flex: 1,
         display: 'flex'
     },
-    overAllContainer: {
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderColor: 'green',
-        borderWidth: 3
-    },
     textBoxContainer: {
-        flex: .7,
-    },
-    container: {
-        flex: .3,
-        // width: 280,
-        // borderRadius: 20,
-        // backgroundColor: '#fff',
-        justifyContent: 'center',
+        flex: .5,
+        justifyContent: 'flex-end',
         alignItems: 'center',
-        flexDirection: 'column',
-
-        borderWidth: 2,
-        borderColor: 'blue'
-        // padding: 20,
-        // shadowOffset:{  width: 1,  height: 1,  },
-        // shadowColor: 'black',
-        // shadowOpacity: 1.0,
+        marginLeft: 30,
+        marginRight: 30,
+        marginBottom: 70
+    },
+    choicesText: {
+        fontSize: 50,
+        fontWeight: '600',
+        color: '#fff'
+    },
+    buttonsContainer: {
+        flex: .5,
+        marginRight: 10,
+        marginLeft: 10
     },
     buttonStyle: {
         flex: 1,
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'stretch',
-        // backgroundColor: '#fff',
-        // borderWidth: 3,
-        // borderColor: '#009FB7',
-        borderRadius: 10,
-        margin: 10
+        alignItems: 'center',
+        backgroundColor: '#f08433',
+        marginBottom: 20,
+        shadowColor: '#000',
+		shadowOffset: { width: 1, heigh: 1 },
+		shadowOpacity: 0.6,
+    },
+    buttonStyle1: {
+        flex: 1,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f9d24e',
+        marginBottom: 20,
+        shadowColor: '#000',
+		shadowOffset: { width: 1, heigh: 1 },
+		shadowOpacity: 0.6,
+    },
+    buttonStyle2: {
+        flex: 1,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#009FB7',
+        marginBottom: 20,
+        shadowColor: '#000',
+		shadowOffset: { width: 1, heigh: 1 },
+		shadowOpacity: 0.6,
+    },
+    buttonStyle3: {
+        flex: 1,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#FE4A49',
+        marginBottom: 20,
+        shadowColor: '#000',
+		shadowOffset: { width: 1, heigh: 1 },
+		shadowOpacity: 0.6,
     },
     textContainer: {
         flex: 1,
@@ -121,10 +122,19 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontSize: 25,
-        color: '#009FB7',
+        color: '#fff',
         letterSpacing: 1.5,
         textShadowOffset: { width: 1.5, height: 1 },
-        textShadowColor: '#000707',
+        textShadowColor: '#4D4D4D',
         textShadowRadius: 1,
     }
-})
+});
+
+{/* <TouchableOpacity style={styles.buttonStyle} onPress={this.onShopPress.bind(this)}>
+    <LinearGradient style={styles.textContainer}
+        start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
+        locations={[0,0.5,0.6]}
+        colors={['#f08433', '#f4a93f', '#f9d24e']}>
+        <Text style={styles.textStyle}>Shop</Text>
+    </LinearGradient>
+</TouchableOpacity> */}
