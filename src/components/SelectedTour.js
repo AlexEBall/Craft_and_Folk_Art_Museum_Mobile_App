@@ -9,6 +9,7 @@ import {
     TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {audioPlayerViewWidth} from '../actions';
+import {Actions} from 'react-native-router-flux';
 import Svg, {Path} from 'react-native-svg';
 import AudioPlayerComponent from './AudioPlayer';
 
@@ -31,6 +32,10 @@ class SelectedTour extends Component {
         );
     }
 
+    onLearnMorePress = () => {
+        Actions.learnMore();
+    }
+
     render() {
         console.log(this.props);
         const url = this.props.audioLinkName;
@@ -51,7 +56,7 @@ class SelectedTour extends Component {
                 </View>                
 
                 <View style={styles.moreInfoBox}>
-                    <TouchableOpacity style={styles.infoBtn}>
+                    <TouchableOpacity style={styles.infoBtn} onPress={this.onLearnMorePress.bind(this)}>
                         <Text style={styles.infoText}>
                             Learn More
                         </Text>

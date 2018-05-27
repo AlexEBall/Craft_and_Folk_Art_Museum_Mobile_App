@@ -8,6 +8,7 @@ import Exhibitions from './pages/Exhibitions';
 import GeneralInfo from './pages/GeneralInfo';
 import Programs from './pages/Programs';
 import Tour from './pages/Tour';
+import LearnMore from './pages/LearnMore';
 
 const RouterComponent = () => {
     return (
@@ -27,6 +28,9 @@ const RouterComponent = () => {
                             backTitle=" " />
                     <Scene key="tour" component={Tour} hideNavBar={false} title={'CAFAM Tour'} 
                             navigationBarStyle={{ backgroundColor: '#F4A93F' }}/>
+                    <Scene key="learnMore" component={LearnMore} hideNavBar={false} title={'Connect with the Artist'}
+                            navigationBarStyle={{ backgroundColor: '#F4A93F' }}
+                            backTitle=" " />
                 </Scene>
             </Lightbox>
         </Router>
