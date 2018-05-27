@@ -14,7 +14,7 @@ export default class ChoicesPage extends Component {
     }
 
     onProgramsPress = () => {
-        
+        Actions.programs();
     }
 
     onShopPress = () => {

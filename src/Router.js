@@ -23,7 +23,7 @@ const RouterComponent = () => {
                     <Scene key="generalInfo" component={GeneralInfo} hideNavBar={false} title={'General Information'} 
                             navigationBarStyle={{ backgroundColor: '#F4A93F' }} 
                             backTitle=" " />
-                    <Scene key="programs" component={Programs} hideNavBar={false} title={'General Information'} 
+                    <Scene key="programs" component={Programs} hideNavBar={false} title={'Upcoming Programs'} 
                             navigationBarStyle={{ backgroundColor: '#F4A93F' }} 
                             backTitle=" " />
                     <Scene key="tour" component={Tour} hideNavBar={false} title={'CAFAM Tour'} 
