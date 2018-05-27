@@ -9,3 +9,7 @@ export const AUDIO_PAUSE = 'audio_pause';
 export const AUDIO_SET_TIME = 'audio_set_time';
 export const AUDIO_CURRENT_TIME = 'audio_current_time';
 export const AUDIO_PLAYER_VIEW_WIDTH = 'audio_player_view_width';
+
+export const FETCHING_PROGRAMS_START = 'fetching_programs_start';
+export const FETCHING_PROGRAMS_ERROR = 'fetching_programs_error';
+export const RECIEVE_PROGRAMS = 'recieve_programs';
