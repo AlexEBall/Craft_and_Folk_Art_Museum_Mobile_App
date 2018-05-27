@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         padding: 20,
-        shadowOffset:{  width: 10,  height: 10,  },
+        shadowOffset:{  width: 1,  height: 1,  },
         shadowColor: 'black',
         shadowOpacity: 1.0,
     },

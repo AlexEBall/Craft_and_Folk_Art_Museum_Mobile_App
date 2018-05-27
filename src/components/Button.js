@@ -22,14 +22,14 @@ const styles = {
         // justifyContent: 'center',
         backgroundColor: '#fff',
         borderRadius: 5,
-        borderWidth: 1,
-        borderColor: '#007aff',
+        // borderWidth: 1,
+        // borderColor: '#007aff',
         margin: 15,
         padding: 5
     },
     textStyle: {
         alignSelf: 'center',
-        color: '#0071ff',
+        color: 'red',
         fontSize: 16,
         fontWeight: '600',
         paddingTop: 10,
