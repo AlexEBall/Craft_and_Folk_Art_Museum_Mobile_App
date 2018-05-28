@@ -23,8 +23,18 @@ export default class Card extends Component {
                         resizeMode='cover' >
                         <View style={styles.priceBox}>
                             <Text style={styles.price}>
-                                {this.props.price}
+                                ${this.props.price}
                             </Text>
+                        </View>
+                        <View style={styles.memberInfoBox}>
+                            <View style={styles.memberInfoTextBox}>
+                                <Text>
+                                    {this.props.memberInfo}
+                                </Text>
+                            </View>
+                            <View style={styles.registrationBox}>
+                                <Text>Hello</Text>
+                            </View>
                         </View>
                     </ImageBackground>
                 </View>
@@ -35,9 +45,11 @@ export default class Card extends Component {
                     <View style={styles.infoBoxTime}>
                         <Text style={styles.time}>{this.props.time}</Text>
                     </View>
-                    <View style={styles.infoBoxDescription}>
-                        <Text style={styles.description}>{this.props.description}</Text>
-                    </View>
+                    <ScrollView>
+                        <View style={styles.infoBoxDescription}>
+                            <Text style={styles.description}>{this.props.description}</Text>
+                        </View>
+                    </ScrollView>
                 </View>
             </View>
         );
@@ -61,7 +73,7 @@ const styles = StyleSheet.create({
     }, 
     mainImg: {
         flex: .5,
-        display: 'flex',
+        display: 'flex'
     },
 
     priceBox: {
@@ -74,6 +86,17 @@ const styles = StyleSheet.create({
         marginTop: 40,
         width: 80,
         // height: 100
+    },
+    memberInfoBox: {
+        flex: .2, 
+        backgroundColor: 'red',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    registrationBox: {
+        flex: .2,
+        backgroundColor: '#fff'
     },
     price: {
         fontSize: 28,
@@ -88,7 +111,9 @@ const styles = StyleSheet.create({
     img: {
         flex: 1,
         height: null,
-        width: null
+        width: null,
+        display: 'flex',
+        justifyContent: 'space-between'
     },
     infoBoxTitle: {
         flex: 1,
