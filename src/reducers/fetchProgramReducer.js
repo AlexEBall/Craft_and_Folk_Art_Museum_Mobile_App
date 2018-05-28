@@ -7,7 +7,7 @@ import {
 const INITIAL_STATE = {
     fetching: false,
     fetched: false,
-    program: [],
+    programs: [],
     error: null
 }
 export default (state=INITIAL_STATE, action) => {
@@ -21,7 +21,7 @@ export default (state=INITIAL_STATE, action) => {
             return { ...state, 
                 fetching: false, 
                 fetched: true, 
-                program: action.payload 
+                programs: action.payload 
                 }
         default: 
             return state;

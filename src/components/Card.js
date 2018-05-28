@@ -19,7 +19,7 @@ export default class Card extends Component {
                 <View style={styles.mainImg}>
                     <ImageBackground 
                         style={styles.img}
-                        source={require('../assets/img/barm.png')}
+                        source={{ uri: this.props.picture }}
                         resizeMode='cover' >
                         <View style={styles.priceBox}>
                             <Text style={styles.price}>

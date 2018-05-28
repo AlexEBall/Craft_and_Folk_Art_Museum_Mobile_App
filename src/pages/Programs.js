@@ -10,37 +10,58 @@ import {
     ImageBackground
 } from 'react-native';
 import {connect} from 'react-redux';
+import {fetchPrograms} from '../actions';
 import Card from '../components/Card';
+import Spinner from '../components/Spinner';
 
 class Programs extends Component {
+
+    componentWillMount = () => {
+        this.props.fetchPrograms();
+    }
+
     _findDimensions = (layout) => {
         const {x, y, width, height} = layout;
         console.log(x);
         console.log(y);
         console.log(width);
         console.log(height);
-
-        // this.props.audioPlayerViewWidth(width);
     }
 
     renderCards = () => {
+        let programs = this.props.programs;
+        let spin = this.props.fetching;
 
+        if (spin === true) {
+            return <Spinner />
+        } else {
+
+        console.log(programs);
+
+        return programs.map(program => 
+            <Card key={program._id} 
+                price={program.price}
+                memberInfo={program.memberInfo}
+                title={program.title}
+                time={program.time}
+                description={program.description}
+                picture={program.picture}
+                registrationLink={program.registrationLink} 
+            />
+        );
+ 
+        }
     }
 
     render() {
+
         return (
             <View style={styles.container} onLayout={(event) => { this._findDimensions(event.nativeEvent.layout) }}>
 
                 <ScrollView>
 
-                    <Card
-                        price={'$90'}
-                        title={'An Old-Fashioned Craft-Cocktail Workshop with Bar Mattachine'}
-                        time={'Sunday, June 17. 2:00pm–4:00pm'}
-                        description={'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum id aliquam sapiente, deleniti suscipit quaerat? Explicabo blanditiis placeat sint asperiores, harum aliquam, omnis repudiandae, rerum qui aut nostrum. Ullam, ratione.'} 
-                    />
-                    
-
+                    {this.renderCards()}
+                
                 </ScrollView>
             </View>
         );
@@ -52,13 +73,17 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         display: 'flex',
-        justifyContent: 'center',
-        // alignItems: 'center'
+        justifyContent: 'center'
     }
 });
 
 const mapStateToProps = state => {
-    // return {viewWidth: state.audio.viewWidth}
+    return {
+        fetching: state.programs.fetching,
+        fetched: state.programs.fetched,
+        error: state.programs.error,
+        programs: state.programs.programs
+    }
 }
 
-export default connect(mapStateToProps, {})(Programs);
+export default connect(mapStateToProps, { fetchPrograms })(Programs);
