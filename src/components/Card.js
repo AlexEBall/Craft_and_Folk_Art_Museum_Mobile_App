@@ -9,6 +9,7 @@ import {
     Linking,
     ImageBackground
 } from 'react-native';
+import Svg, {Path} from 'react-native-svg';
 
 export default class Card extends Component {
     
@@ -28,12 +29,24 @@ export default class Card extends Component {
                         </View>
                         <View style={styles.memberInfoBox}>
                             <View style={styles.memberInfoTextBox}>
-                                <Text>
+                                <Text style={styles.memberInfoText}>
                                     {this.props.memberInfo}
                                 </Text>
                             </View>
                             <View style={styles.registrationBox}>
-                                <Text>Hello</Text>
+                                <TouchableOpacity style={styles.registrationBtn} onPress={() => Linking.openURL(this.props.registrationLink)}>
+                                    <Svg height="32" width="32">
+                                        <Path d="M12 23c0-4.726 2.996-8.765 7.189-10.319 0.509-1.142 0.811-2.411 0.811-3.681 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h12.416c-0.271-0.954-0.416-1.96-0.416-3z"
+                                            fill='#009FB7'
+                                            stroke='#009FB7'
+                                        >
+                                        </Path>
+                                        <Path d="M23 14c-4.971 0-9 4.029-9 9s4.029 9 9 9c4.971 0 9-4.029 9-9s-4.029-9-9-9zM28 24h-4v4h-2v-4h-4v-2h4v-4h2v4h4v2z"
+                                            fill='#009FB7'
+                                            stroke='#009FB7'
+                                        ></Path>
+                                    </Svg>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </ImageBackground>
@@ -79,28 +92,47 @@ const styles = StyleSheet.create({
     priceBox: {
         flex: .15,
         display: 'flex',
-        backgroundColor: 'white',
-        alignItems: 'flex-start',
+        backgroundColor: '#f08433',
+        alignItems: 'center',
         justifyContent: 'center',
         marginLeft: 15,
         marginTop: 40,
         width: 80,
-        // height: 100
     },
     memberInfoBox: {
         flex: .2, 
-        backgroundColor: 'red',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+    },
+    memberInfoTextBox: {
+        flex: .8,
+        backgroundColor: 'rgba(254, 74, 73, .8)'
+    },
+    memberInfoText: {
+        fontSize: 18,
+        color: '#fff',
+        marginLeft: 5,
+        marginTop: 5
     },
     registrationBox: {
         flex: .2,
-        backgroundColor: '#fff'
+        backgroundColor: 'rgba(254, 74, 73, .8)',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+    },
+    registrationBtn: {
+        zIndex: 5,
+        // borderColor: '#009FB7',
+        // borderBottomWidth: 2,
+        backgroundColor: '#fff',
+        padding: 10,
+        borderRadius: 50,
+        marginBottom: 3
     },
     price: {
         fontSize: 28,
-        // padding: 
+        color: '#fff'
     },
 
 
