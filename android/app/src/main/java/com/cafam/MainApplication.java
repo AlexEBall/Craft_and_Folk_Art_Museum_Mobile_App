@@ -3,6 +3,7 @@ package com.cafam;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.horcrux.svg.SvgPackage;
 import com.RNPlayAudio.RNPlayAudioPackage;
@@ -30,10 +31,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new RNFetchBlobPackage(),
             new LinearGradientPackage(),
             new SvgPackage(),
             new RNPlayAudioPackage(),
-            new RNSoundPackage(),
+            // new RNSoundPackage(),
             // new RNAudioStreamerPackage(),
             // new ReactNativeAudioStreamingPackage(),
             new AudioPackage()

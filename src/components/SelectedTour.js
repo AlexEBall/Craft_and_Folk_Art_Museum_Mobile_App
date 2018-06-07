@@ -13,6 +13,10 @@ import {Actions} from 'react-native-router-flux';
 import Svg, {Path} from 'react-native-svg';
 import AudioPlayerComponent from './AudioPlayer';
 
+import imageCacheHoc from 'react-native-image-cache-hoc';
+
+const CacheableImage = imageCacheHoc(ImageBackground);
+
 class SelectedTour extends Component {
 
     _findDimensions = (layout) => {
@@ -28,7 +32,7 @@ class SelectedTour extends Component {
     renderImages = () => {
         console.log('floorGallery array? ', this.props.floorGallery);
         return this.props.floorGallery.map((image, index) => 
-            <ImageBackground key={index} style={styles.selectedTourImg} source={{ uri: image }}/>
+            <CacheableImage key={index} style={styles.selectedTourImg} source={{ uri: image }}/>
         );
     }
 

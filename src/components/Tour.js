@@ -11,6 +11,9 @@ import {
 import { Actions } from 'react-native-router-flux';
 import Svg, {Path} from 'react-native-svg';
 import Button from '../components/Button';
+import imageCacheHoc from 'react-native-image-cache-hoc';
+
+const CacheableImage = imageCacheHoc(ImageBackground);
 
 export default class Tour extends Component {
 
@@ -63,7 +66,7 @@ export default class Tour extends Component {
         return (
             <View style={styles.tour}>
                 <View style={styles.tourImgBox}>
-                    <ImageBackground 
+                    <CacheableImage 
                         source={{ uri: coverImage }}
                         style={styles.img}>
                     <View style={styles.push}></View>
@@ -73,7 +76,7 @@ export default class Tour extends Component {
                         </Text>
                         {this.renderButton()}
                     </View>
-                    </ImageBackground>
+                    </CacheableImage>
                 </View>
             </View>
         );

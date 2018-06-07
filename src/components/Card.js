@@ -10,6 +10,9 @@ import {
     ImageBackground
 } from 'react-native';
 import Svg, {Path} from 'react-native-svg';
+import imageCacheHoc from 'react-native-image-cache-hoc';
+
+const CacheableImage = imageCacheHoc(ImageBackground);
 
 export default class Card extends Component {
     
@@ -18,7 +21,7 @@ export default class Card extends Component {
         return (
             <View style={styles.card}>
                 <View style={styles.mainImg}>
-                    <ImageBackground 
+                    <CacheableImage 
                         style={styles.img}
                         source={{ uri: this.props.picture }}
                         resizeMode='cover' >
@@ -49,7 +52,7 @@ export default class Card extends Component {
                                 </TouchableOpacity>
                             </View>
                         </View>
-                    </ImageBackground>
+                    </CacheableImage>
                 </View>
                 <View style={styles.infoBox}>
                     <View style={styles.infoBoxTitle}>
