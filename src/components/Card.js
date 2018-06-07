@@ -72,20 +72,18 @@ const styles = StyleSheet.create({
     card: {
         flex: 1,
         backgroundColor: 'white',
-        // margin: 10,
         display: 'flex',
         justifyContent: 'center',
-        // alignItems: 'center'
-        height: 580,
-        borderBottomWidth: 2,
-        borderBottomColor: '#f7f7f7',
-        shadowColor: '#000',
-        shadowOffset: { width: 1, heigh: 1 },
-        shadowOpacity: 0.6,
-        marginBottom: 12
+        height: 730,
+        // borderBottomWidth: 2,
+        // borderBottomColor: '#f7f7f7',
+        // shadowColor: '#000',
+        // shadowOffset: { width: 1, heigh: 1 },
+        // shadowOpacity: 0.6,
+        // marginBottom: 12
     }, 
     mainImg: {
-        flex: .5,
+        flex: .45,
         display: 'flex'
     },
 
@@ -123,8 +121,6 @@ const styles = StyleSheet.create({
     },
     registrationBtn: {
         zIndex: 5,
-        // borderColor: '#009FB7',
-        // borderBottomWidth: 2,
         backgroundColor: '#fff',
         padding: 10,
         borderRadius: 50,
@@ -137,7 +133,7 @@ const styles = StyleSheet.create({
 
 
     infoBox: {
-        flex: .5,
+        flex: .55,
         display: 'flex'
     },
     img: {
@@ -148,17 +144,15 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     infoBoxTitle: {
-        flex: 1,
+        flex: .5,
         backgroundColor: '#fff',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        alignItems: 'center',
-        
-        // marginLeft: 10
+        alignItems: 'center'
     },
     infoBoxTime: {
-        flex: .2,
+        flex: .1,
         backgroundColor: '#fff'
     },
     infoBoxDescription: {
@@ -178,6 +172,9 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 20,
-        padding: 15
+        paddingLeft: 15,
+        paddingTop: 10,
+        paddingRight: 15,
+        paddingBottom: 10
     }
 });
