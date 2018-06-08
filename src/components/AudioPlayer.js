@@ -182,13 +182,14 @@ class AudioPlayerComponent extends Component {
 
     render() {
         const url = this.props.url;
+        const title = this.props.title;
         console.log('AudioPlayer --------- ', AudioPlayer);
 
         return (
             <View style={styles.selectedTourAudioInfoBox}>
                 <View style={styles.audioTitleBox}>
                     <Text style={styles.audioTitle}>
-                        Bamboo: A Japanese Perspective
+                        {title}
                     </Text>
                 </View>
                 <View style={styles.audioControls}>

@@ -16,9 +16,11 @@ export default class Tour extends Component {
                 <View style={styles.tourContainer}>
 
                     <SelectedTour
-                    tourText={this.props.selectedTour.floorText}
+                    audioTitle={this.props.selectedTour.audioTitle}
                     audioLinkName={this.props.selectedTour.audioLink}
-                    floorGallery={this.props.selectedTour.floorGallery} />
+                    floorGallery={this.props.selectedTour.floorGallery}
+                    connect={this.props.selectedTour.artistSocial}
+                     />
 
                 </View>
 

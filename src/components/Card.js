@@ -7,7 +7,8 @@ import {
     TouchableOpacity,
     ScrollView,
     Linking,
-    ImageBackground
+    ImageBackground,
+    ActivityIndicator
 } from 'react-native';
 import Svg, {Path} from 'react-native-svg';
 import imageCacheHoc from 'react-native-image-cache-hoc';
@@ -179,5 +180,10 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         paddingRight: 15,
         paddingBottom: 10
+    },
+    activityIndicatorStyle: {
+        width: 150,
+        height: 204,
+        backgroundColor: '#dc143c'
     }
 });

@@ -37,7 +37,7 @@ class SelectedTour extends Component {
     }
 
     onLearnMorePress = () => {
-        Actions.learnMore();
+        Actions.learnMore({connect: this.props.connect});
     }
 
     render() {
@@ -56,7 +56,10 @@ class SelectedTour extends Component {
                 </View>
 
                 <View style={styles.selectedTourAudioInfoBox}>
-                    <AudioPlayerComponent url={url}/>
+                    <AudioPlayerComponent 
+                    url={url}
+                    title={this.props.audioTitle}
+                    />
                 </View>                
 
                 <View style={styles.moreInfoBox}>
