@@ -88,6 +88,10 @@ export default class GeneralInfo extends Component {
 
 
                 <View style={styles.map}>
+                    <Image 
+                        style={styles.mapImg}
+                        source={{ uri: "https://res.cloudinary.com/dawjvqyvd/image/upload/c_scale,w_447/v1528503550/Screen_Shot_2018-06-08_at_5.18.21_PM.png" }}
+                    />
                 </View>
             </ScrollView>
         )
@@ -114,9 +118,14 @@ const styles = StyleSheet.create({
     map: {
         flex: 1,
         display: 'flex',
-        borderWidth: 2,
-        borderColor: 'black',
+        borderTopWidth: 3,
+        borderTopColor: '#009FB7',
         height: 300
+    },
+    mapImg: {
+        flex: 1,
+        height: null,
+        width: null
     },
     header: {
         flex: .3,

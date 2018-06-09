@@ -231,22 +231,22 @@ const styles = StyleSheet.create({
     },
     // TITLE STYLING
     audioTitleBox: {
-        flex: .2,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        borderBottomWidth: 2,
-        borderBottomColor: 'black'
+        display: 'flex'
     },
     audioTitle: {
         fontSize: 18,
         fontWeight: '400',
+        textAlign: 'center'
+
     },
     // AUDIO CONTROL STYLING
     audioControls: {
-        flex: .8,
+        flex: .9,
         display: 'flex',
         flexDirection: 'row',
-        // backgroundColor: 'purple'
     },
     audioBtnBox: {
         flex: .2,
@@ -255,7 +255,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     audioBtn: {
-        // backgroundColor: 'lightblue',
         padding: 5,
         borderRadius: 50,
     },
@@ -269,11 +268,9 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         paddingRight: 5,
         paddingLeft: 5,
-        // backgroundColor: 'green'
     },
     audioProgressBar: {
         flex: 1,
-        // borderColor: 'black'
     }
 })
 

@@ -12,6 +12,11 @@ import Svg, {Path} from 'react-native-svg';
 
 export default class LearnMore extends Component {
     render() {
-        return null;
+        console.log(this.props);
+        return (
+            <View>
+                <Text>Here</Text>
+            </View>
+        );
     }
 }
