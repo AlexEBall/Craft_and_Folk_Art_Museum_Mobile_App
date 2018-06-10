@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     tourImgBox: {
         flex: 1,
         display: 'flex',
-        height: 1150
+        height: 1100
     },
     selectedTourImg: {
         flex: 1,
