@@ -32,7 +32,12 @@ class SelectedTour extends Component {
     renderImages = () => {
         console.log('floorGallery array? ', this.props.floorGallery);
         return this.props.floorGallery.map((image, index) => 
-            <CacheableImage key={index} style={styles.selectedTourImg} source={{ uri: image }}/>
+            <CacheableImage 
+                key={index} 
+                style={styles.selectedTourImg} 
+                source={{ uri: image }}
+                resizeMode="contain"
+            />
         );
     }
 
@@ -48,7 +53,7 @@ class SelectedTour extends Component {
             <View style={styles.selectedTour} onLayout={(event) => { this._findDimensions(event.nativeEvent.layout) }}>
 
                 <View style={styles.imgArea}>
-                    <ScrollView horizontal={true}>
+                    <ScrollView>
                         <View style={styles.tourImgBox}>
                             {this.renderImages()}
                         </View>
@@ -81,9 +86,9 @@ const styles = StyleSheet.create({
     selectedTour: {
         flex: 1,
         display: 'flex',
-        flexDirection: 'column',
+        // flexDirection: 'column',
         margin: 10,
-        height: 'auto'
+        // height: 'auto'
     },
 
     // 3 PARTS OF CONTAINER
@@ -91,7 +96,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     selectedTourAudioInfoBox: {
-        flex: .3,
+        flex: .2,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -106,8 +111,7 @@ const styles = StyleSheet.create({
     tourImgBox: {
         flex: 1,
         display: 'flex',
-        flexDirection: 'row',
-        width: 950
+        height: 1150
     },
     selectedTourImg: {
         flex: 1,
