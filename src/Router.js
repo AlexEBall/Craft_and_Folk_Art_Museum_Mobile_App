@@ -12,7 +12,12 @@ import LearnMore from './pages/LearnMore';
 
 const RouterComponent = () => {
     return (
-        <Router>
+        <Router
+            titleStyle={{
+                color: '#fff'
+            }}
+            navBarButtonColor='#fff'
+        >
             <Lightbox>
                 <Scene key="root" hideNavBar>
                     <Scene key="homepage" component={LandingPage} />
