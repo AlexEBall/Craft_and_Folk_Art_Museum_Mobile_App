@@ -1,14 +1,5 @@
 import React, {Component} from 'react';
-import {
-    Text,
-    View,
-    Image,
-    StyleSheet,
-    TouchableOpacity,
-    ScrollView,
-    Linking,
-    ImageBackground
-} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import {fetchPrograms} from '../actions';
 import Card from '../components/Card';
@@ -22,10 +13,6 @@ class Programs extends Component {
 
     _findDimensions = (layout) => {
         const {x, y, width, height} = layout;
-        console.log(x);
-        console.log(y);
-        console.log(width);
-        console.log(height);
     }
 
     renderCards = () => {
@@ -36,20 +23,17 @@ class Programs extends Component {
             return <Spinner />
         } else {
 
-        console.log(programs);
-
-        return programs.map(program => 
-            <Card key={program._id} 
-                price={program.price}
-                memberInfo={program.memberInfo}
-                title={program.title}
-                time={program.time}
-                description={program.description}
-                picture={program.picture}
-                registrationLink={program.registrationLink} 
-            />
-        );
- 
+            return programs.map(program => 
+                <Card key={program._id} 
+                    price={program.price}
+                    memberInfo={program.memberInfo}
+                    title={program.title}
+                    time={program.time}
+                    description={program.description}
+                    picture={program.picture}
+                    registrationLink={program.registrationLink} 
+                />
+            );
         }
     }
 
@@ -57,11 +41,8 @@ class Programs extends Component {
 
         return (
             <View style={styles.container} onLayout={(event) => { this._findDimensions(event.nativeEvent.layout) }}>
-
                 <ScrollView>
-
                     {this.renderCards()}
-                
                 </ScrollView>
             </View>
         );

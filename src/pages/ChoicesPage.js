@@ -75,10 +75,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#f08433',
-        marginBottom: 20,
-        // shadowColor: '#000',
-		// shadowOffset: { width: 1, heigh: 1 },
-		// shadowOpacity: 0.6,
+        marginBottom: 20
     },
     buttonStyle1: {
         flex: 1,
@@ -86,10 +83,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#f9d24e',
-        marginBottom: 20,
-        // shadowColor: '#000',
-		// shadowOffset: { width: 1, heigh: 1 },
-		// shadowOpacity: 0.6,
+        marginBottom: 20
     },
     buttonStyle2: {
         flex: 1,
@@ -97,10 +91,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#009FB7',
-        marginBottom: 20,
-        // shadowColor: '#000',
-		// shadowOffset: { width: 1, heigh: 1 },
-		// shadowOpacity: 0.6,
+        marginBottom: 20
     },
     buttonStyle3: {
         flex: 1,
@@ -108,10 +99,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#FE4A49',
-        marginBottom: 20,
-        // shadowColor: '#000',
-		// shadowOffset: { width: 1, heigh: 1 },
-		// shadowOpacity: 0.6,
+        marginBottom: 20
     },
     textContainer: {
         flex: 1,
@@ -123,18 +111,6 @@ const styles = StyleSheet.create({
     textStyle: {
         fontSize: 25,
         color: '#fff',
-        letterSpacing: 1.5,
-        // textShadowOffset: { width: 1.5, height: 1 },
-        // textShadowColor: '#4D4D4D',
-        // textShadowRadius: 1,
+        letterSpacing: 1.5
     }
 });
-
-{/* <TouchableOpacity style={styles.buttonStyle} onPress={this.onShopPress.bind(this)}>
-    <LinearGradient style={styles.textContainer}
-        start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
-        locations={[0,0.5,0.6]}
-        colors={['#f08433', '#f4a93f', '#f9d24e']}>
-        <Text style={styles.textStyle}>Shop</Text>
-    </LinearGradient>
-</TouchableOpacity> */}
