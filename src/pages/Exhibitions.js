@@ -14,8 +14,6 @@ class Exhibitions extends Component {
     renderTourBox = () => {
         let tours = this.props.data;
         let spin = this.props.fetching
-
-        console.log(spin);
         // spinner on images if passing smaller images doesn't work
         if (spin === true) {
             return <Spinner />
