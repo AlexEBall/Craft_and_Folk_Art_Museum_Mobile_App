@@ -7,10 +7,6 @@ import com.RNFetchBlob.RNFetchBlobPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.horcrux.svg.SvgPackage;
 import com.RNPlayAudio.RNPlayAudioPackage;
-import com.zmxv.RNSound.RNSoundPackage;
-import fm.indiecast.rnaudiostreamer.RNAudioStreamerPackage;
-// import com.audioStreaming.ReactNativeAudioStreamingPackage;
-import com.futurice.rctaudiotoolkit.AudioPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -34,11 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
             new RNFetchBlobPackage(),
             new LinearGradientPackage(),
             new SvgPackage(),
-            new RNPlayAudioPackage(),
-            // new RNSoundPackage(),
-            // new RNAudioStreamerPackage(),
-            // new ReactNativeAudioStreamingPackage(),
-            new AudioPackage()
+            new RNPlayAudioPackage()
       );
     }
 
