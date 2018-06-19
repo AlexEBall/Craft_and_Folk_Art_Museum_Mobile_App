@@ -1,4 +1,3 @@
-// Import libraries for making a component
 import React from 'react';
 // View is used to position elements inside our applicatoin
 import { Text, View } from 'react-native';

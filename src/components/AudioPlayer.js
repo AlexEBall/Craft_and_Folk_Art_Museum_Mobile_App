@@ -20,12 +20,10 @@ import ProgressBar from './ProgressBar';
 
 class AudioPlayerComponent extends Component {
     _audioPlay = (url) => {
-        console.log('pressed');
 
         setInterval(() => {
             AudioPlayer.getCurrentTime((currentTime) => {
-            console.log('current time::::: is :::: ', currentTime);
-            this.props.audioCurrentTime(currentTime);
+                this.props.audioCurrentTime(currentTime);
             });
         }, 1000);
 
@@ -36,7 +34,6 @@ class AudioPlayerComponent extends Component {
 
             AudioPlayer.getDuration((duration) => {
                 this.props.audioTime(duration);
-                console.log(duration);
             });
         });
         } else {
@@ -46,44 +43,28 @@ class AudioPlayerComponent extends Component {
     }
 
     _audioPause = (url) => {
-        console.log('paused')
         this.props.audioPlaying(false);
         this.props.audioPaused(true);
         AudioPlayer.pause();
     }
 
     _audioForward = (url) => {
-        console.log('forward');
-
         let currentTime = AudioPlayer.getCurrentTime((currentTime) => {
-            console.log('current time::::: is :::: ', currentTime);
-            // this.props.audioSetTime(currentTime);
-
             let forwardedTime = (currentTime + 10);
-            console.log('forwarded time is :::::: ', forwardedTime);
-
             this.props.audioSetTime(forwardedTime);
-
             AudioPlayer.setTime(this.props.setTime);
         });
     }
 
     _audioRewind = (url) => {
-        console.log('rewind');
-
         let currentTime = AudioPlayer.getCurrentTime((currentTime) => {
-            console.log('current time::::: is :::: ', currentTime);
-            // this.props.audioSetTime(currentTime);
-
             let rewoundTime = (currentTime - 10);
-            console.log('rewound time is :::::: ', rewoundTime);
-
             this.props.audioSetTime(rewoundTime);
 
             if (currentTime < 10) {
                 AudioPlayer.setTime(0);
             } else {
-            AudioPlayer.setTime(this.props.setTime);
+                AudioPlayer.setTime(this.props.setTime);
             }
         });
     }
@@ -143,7 +124,7 @@ class AudioPlayerComponent extends Component {
 
     audioForwardTouchableToggle = (url) => {
         const limit = (this.props.totalTime - 10);
-        console.log(limit);
+
         if (this.props.currentTime > (this.props.totalTime - 10)) {
             return (
             <TouchableOpacity style={styles.audioBtn} disabled={true} onPress={() => this._audioForward(url)}>
@@ -176,14 +157,11 @@ class AudioPlayerComponent extends Component {
         this.props.audioSetTime(0);
         this.props.audioTime(0);
         AudioPlayer.stop();
-
-        console.log('component unmounted');
     } 
 
     render() {
         const url = this.props.url;
         const title = this.props.title;
-        console.log('AudioPlayer --------- ', AudioPlayer);
 
         return (
             <View style={styles.selectedTourAudioInfoBox}>

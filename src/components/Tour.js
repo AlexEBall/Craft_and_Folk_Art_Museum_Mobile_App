@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Svg, {Path} from 'react-native-svg';
-import Button from '../components/Button';
 import imageCacheHoc from 'react-native-image-cache-hoc';
 
 const CacheableImage = imageCacheHoc(ImageBackground);
@@ -22,7 +21,6 @@ export default class Tour extends Component {
     }
 
     renderButton = () => {
-        console.log('hello');
         if (!this.props.selectedTour) {
             return  <TouchableOpacity style={styles.startBtnDisabled} onPress={this.onTourPress.bind(this)}>
                         <Svg height="32" width="32">
@@ -140,20 +138,6 @@ const styles = StyleSheet.create({
         margin: 15,
         padding: 5
     },
-    // startBtnText: {
-    //     alignSelf: 'center',
-    //     color: '#009FB7',
-    //     fontSize: 16,
-    //     fontWeight: '600',
-    //     paddingTop: 10,
-    //     paddingBottom: 10
-    // },
-    // imgTextBox: {
-    //     flex: 1,
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    //     transform: [{ skewY: '-10deg' }]
-    // },
     imgText: {
         margin: 10,
         color: 'white',

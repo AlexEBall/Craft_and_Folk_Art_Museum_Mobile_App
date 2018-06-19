@@ -12,7 +12,6 @@ import {audioPlayerViewWidth} from '../actions';
 import {Actions} from 'react-native-router-flux';
 import Svg, {Path} from 'react-native-svg';
 import AudioPlayerComponent from './AudioPlayer';
-
 import imageCacheHoc from 'react-native-image-cache-hoc';
 
 const CacheableImage = imageCacheHoc(ImageBackground);
@@ -21,16 +20,10 @@ class SelectedTour extends Component {
 
     _findDimensions = (layout) => {
         const {x, y, width, height} = layout;
-        console.log(x);
-        console.log(y);
-        console.log(width);
-        console.log(height);
-
         this.props.audioPlayerViewWidth(width);
     }
 
     renderImages = () => {
-        console.log('floorGallery array? ', this.props.floorGallery);
         return this.props.floorGallery.map((image, index) => 
             <CacheableImage 
                 key={index} 
@@ -46,7 +39,6 @@ class SelectedTour extends Component {
     }
 
     render() {
-        console.log(this.props);
         const url = this.props.audioLinkName;
 
         return (
@@ -86,9 +78,7 @@ const styles = StyleSheet.create({
     selectedTour: {
         flex: 1,
         display: 'flex',
-        // flexDirection: 'column',
-        margin: 10,
-        // height: 'auto'
+        margin: 10
     },
 
     // 3 PARTS OF CONTAINER

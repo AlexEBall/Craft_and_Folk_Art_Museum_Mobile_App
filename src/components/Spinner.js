@@ -15,7 +15,6 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         height: 600,
-        // backgroundColor: 'turquoise',
         justifyContent: 'center',
         alignItems: 'center'
     }

@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import TourBoxHeader from '../components/TourBoxHeader';
 import Tour from '../components/Tour';
-import Button from '../components/Button';
 
 export default class TourBox extends Component {
 
@@ -20,8 +19,6 @@ export default class TourBox extends Component {
     }
 
     render() {
-        console.log(this.props.tour)
-        // const currentTour = thi
         return (
             <View style={styles.tourBox}>
                 <TourBoxHeader

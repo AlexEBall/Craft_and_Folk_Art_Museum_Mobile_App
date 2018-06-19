@@ -18,7 +18,6 @@ const CacheableImage = imageCacheHoc(ImageBackground);
 export default class Card extends Component {
     
     render() {
-        console.log('programs :::: ', this.props);
         return (
             <View style={styles.card}>
                 <View style={styles.mainImg}>
@@ -79,18 +78,11 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         height: 730,
-        // borderBottomWidth: 2,
-        // borderBottomColor: '#f7f7f7',
-        // shadowColor: '#000',
-        // shadowOffset: { width: 1, heigh: 1 },
-        // shadowOpacity: 0.6,
-        // marginBottom: 12
     }, 
     mainImg: {
         flex: .45,
         display: 'flex'
     },
-
     priceBox: {
         flex: .15,
         display: 'flex',
@@ -134,8 +126,6 @@ const styles = StyleSheet.create({
         fontSize: 28,
         color: '#fff'
     },
-
-
     infoBox: {
         flex: .55,
         display: 'flex'
