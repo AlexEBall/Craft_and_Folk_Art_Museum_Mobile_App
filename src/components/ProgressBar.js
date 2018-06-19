@@ -15,6 +15,10 @@ export default class ProgressBar extends Component {
       }).start();
     }
   }
+
+  componentWillUnmount() {
+    this.props.progress = 0;
+  }
   
   render() {
     const {
