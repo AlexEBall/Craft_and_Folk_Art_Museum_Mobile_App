@@ -209,10 +209,12 @@ const styles = StyleSheet.create({
     },
     // TITLE STYLING
     audioTitleBox: {
-        flex: 1,
+        // flex: 1,s
         justifyContent: 'center',
         alignItems: 'center',
-        display: 'flex'
+        display: 'flex',
+        // flexDirection: 'row',
+        // flexWrap: 'wrap'
     },
     audioTitle: {
         fontSize: 18,
