@@ -28,17 +28,27 @@ export default class LearnMore extends Component {
                         
                         <View style={styles.learnMorePush}>
                         </View>
-                        <View style={styles.articleTitle}>
-
-                        </View>
-
-                        <View style={styles.articleDesc}>
-
-                        </View>
                         
-                        <View style={styles.articleLinks}>
-                        </View>
+                            <View style={styles.articleTitle}>
+                                <Text style={styles.titleText}>
+                                    Vibrant beauty in L.A. artist Merion Estes' 'Lost Horizons'
+                                </Text>
+                            </View>
 
+                            <View style={styles.articleDesc}>
+                                <Text style={styles.descText}>
+                                    Merion Estes ' collaged paintings on paper at CB1 invoke a tower of Babel in two dimensions: W
+                                    ithin them, multiple visual languages are spoken at once. In each of the dozen w
+                                    orks from the ' Lost Horizons ' series (2007-2011), the L.A.-based Estes mobilizes an exuberance of means, togg
+                                    ling between representation, abstraction, pattern and ornament. One mode of addr
+                                    ess, one manner of engaging surface and space abuts another, all of them feeding
+                                    into a vibrant, dissonant beauty'
+                                </Text>
+                            </View>
+                            
+                            <View style={styles.articleLinks}>
+                            </View>
+                        
                 </LinearGradient>
             </CacheableImage>
         );
@@ -55,28 +65,39 @@ const styles = StyleSheet.create({
     },
     learnMoreLinearGradient: {
         flex: 1,
-        display: 'flex'
+        display: 'flex',
+        justifyContent: 'flex-end'
     },
     learnMorePush: {
         flex: .4,
         backgroundColor: 'transparent'
     },
     articleTitle: {
-        flex: .1,
-        backgroundColor: 'pink',
-        borderColor: 'black',
-        borderWidth: 2
+        // can't have a hard coded flex unit because of wrapping
+        // backgroundColor: 'pink',
+        // borderColor: 'black',
+        // borderWidth: 2,
+        display: 'flex'
     },
     articleDesc: {
-        flex: .4,
-        backgroundColor: 'yellow',
-        borderColor: 'black',
-        borderWidth: 2
+        // borderColor: 'black',
+        // borderWidth: 2
     }, 
     articleLinks: {
-        flex: .1,
+        flex: .2,
         backgroundColor: 'red',
         borderColor: 'black',
         borderWidth: 2
+    },
+    titleText: {
+        // flex: 1,
+        fontSize: 24,
+        fontWeight: '600',
+        padding: 10,
+        color: '#fff'
+    },
+    descText: {
+        fontSize: 16,
+        padding: 10,
     }
 });
