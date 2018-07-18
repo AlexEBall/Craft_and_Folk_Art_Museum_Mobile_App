@@ -15,21 +15,21 @@ const CacheableImage = imageCacheHoc(ImageBackground);
 
 export default class LearnMore extends Component {
     onReadMorePress() {
-        Linking.openURL('https://www.latimes.com/entertainment/arts/la-et-cm-merion-estes-review-20170112-htmlstory.html')
+        Linking.openURL(this.props.connect.articleLink)
     }
 
     onConnectPress() {
-        Linking.openURL('https://www.instagram.com/merionestes/')
+        Linking.openURL(this.props.connect.socialLink)
     }
 
     render() {
-        console.log(this.props);
+        console.log('what are my learn more props', this.props);
         const text = 'Merion Estes collaged paintings on paper at CB1 invoke a tower of Babel in two dimensions: Within them, multiple visual languages are spoken at once. In each of the dozen works from the "Lost Horizons" series (2007-2011), the L.A.-based Estes mobilizes an exuberance of means, toggling between representation, abstraction, pattern and ornament. One mode of address, one manner of engaging surface and space abuts another, all of them feeding into a vibrant, dissonant beauty'
         console.log('max length for if statement... ', text.length);
         return (
             <CacheableImage 
                 style={styles.learnMoreImg}
-                source={{ uri: 'https://res.cloudinary.com/dawjvqyvd/image/upload/v1531872311/merion-estes-lost-horizons-35.jpg' }}
+                source={{ uri: this.props.connect.picture }}
                 resizeMode='cover' >
                 <LinearGradient 
                     style={styles.learnMoreLinearGradient}
@@ -41,18 +41,13 @@ export default class LearnMore extends Component {
                         
                             <View style={styles.articleTitle}>
                                 <Text style={styles.titleText}>
-                                    Vibrant beauty in L.A. artist Merion Estes' 'Lost Horizons'
+                                    {this.props.connect.articleTitle}
                                 </Text>
                             </View>
 
                             <View style={styles.articleDesc}>
                                 <Text style={styles.descText}>
-                                    Merion Estes' collaged paintings on paper at CB1 invoke a tower of Babel in two dimensions: W
-                                    ithin them, multiple visual languages are spoken at once. In each of the dozen w
-                                    orks from the ' Lost Horizons ' series (2007-2011), the L.A.-based Estes mobilizes an exuberance of means, togg
-                                    ling between representation, abstraction, pattern and ornament. One mode of addr
-                                    ess, one manner of engaging surface and space abuts another, all of them feeding
-                                    into a vibrant, dissonant beauty'
+                                    {this.props.connect.articleDescription}
                                 </Text>
                             </View>
                             

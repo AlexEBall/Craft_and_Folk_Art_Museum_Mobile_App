@@ -46,7 +46,7 @@ export default class Tour extends Component {
 
     render() {
         const coverImage = this.props.selectedTour.coverPic;
-
+        console.log(this.props.selectedTour);
         return (
             <View style={styles.tour}>
                 <View style={styles.tourImgBox}>

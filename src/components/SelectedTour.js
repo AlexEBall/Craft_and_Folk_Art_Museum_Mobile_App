@@ -39,7 +39,7 @@ class SelectedTour extends Component {
     }
 
     render() {
-        console.log(this.props);
+        console.log('whasssup', this.props);
         const url = this.props.audioLinkName;
 
         return (
