@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: '600',
         padding: 10,
-        color: '#fff',
+        color: '#f08433',
         textShadowOffset: { width: 2, height: 2 },
         textShadowColor: 'black',
         textShadowRadius: 1,
