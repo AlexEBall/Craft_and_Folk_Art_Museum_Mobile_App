@@ -33,7 +33,7 @@ const RouterComponent = () => {
                             backTitle=" " />
                     <Scene key="tour" component={Tour} hideNavBar={false} title={'CAFAM Tour'} 
                             navigationBarStyle={{ backgroundColor: '#F4A93F' }}/>
-                    <Scene key="learnMore" component={LearnMore} hideNavBar={false} title={'Connect with the Artist'}
+                    <Scene key="learnMore" component={LearnMore} hideNavBar={false} title={'Learn More'}
                             navigationBarStyle={{ backgroundColor: '#F4A93F' }}
                             backTitle=" " />
                 </Scene>
