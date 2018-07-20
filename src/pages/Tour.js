@@ -5,6 +5,7 @@ import SelectedTour from '../components/SelectedTour';
 export default class Tour extends Component {
 
     render() {
+        console.log(this.props);
         return (
              <View style={styles.container}>
 
@@ -14,6 +15,7 @@ export default class Tour extends Component {
                     audioLinkName={this.props.selectedTour.audioLink}
                     floorGallery={this.props.selectedTour.floorGallery}
                     connect={this.props.selectedTour.artistConnect}
+                    floor={this.props.selectedTour.floor}
                      />
                 </View>
 
