@@ -35,7 +35,7 @@ class SelectedTour extends Component {
     }
 
     onLearnMorePress = () => {
-        Actions.learnMore({connect: this.props.connect});
+        Actions.learnMore({floor: this.props.floor});
     }
 
     render() {

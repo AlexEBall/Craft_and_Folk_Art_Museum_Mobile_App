@@ -13,3 +13,7 @@ export const AUDIO_PLAYER_VIEW_WIDTH = 'audio_player_view_width';
 export const FETCHING_PROGRAMS_START = 'fetching_programs_start';
 export const FETCHING_PROGRAMS_ERROR = 'fetching_programs_error';
 export const RECIEVE_PROGRAMS = 'recieve_programs';
+
+export const FETCHING_ARTIST_CONNECT_START = 'fetching_artist_connect_start';
+export const FETCHING_ARTIST_CONNECT_ERROR = 'fetching_artist_connect_error';
+export const RECIEVE_ARTIST_CONNECT = 'recieve_artist_connect';
