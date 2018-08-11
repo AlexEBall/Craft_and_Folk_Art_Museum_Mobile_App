@@ -19,6 +19,7 @@ import Svg, {Path} from 'react-native-svg';
 import ProgressBar from './ProgressBar';
 
 class AudioPlayerComponent extends Component {
+    // console.log(this.props.audioCurrentTime);
     _audioPlay = (url) => {
 
         setInterval(() => {
@@ -163,6 +164,7 @@ class AudioPlayerComponent extends Component {
         const url = this.props.url;
         const title = this.props.title;
 
+        // console.log(this.props.audioCurrentTime);
         return (
             <View style={styles.selectedTourAudioInfoBox}>
                 <View style={styles.audioTitleBox}>

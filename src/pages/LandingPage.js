@@ -9,7 +9,7 @@ export default class LandingPage extends Component {
     render() {
         return (
             <ImageBackground
-                source={require('../assets/img/craftnfolkart.jpg')}
+                source={{ uri: 'https://res.cloudinary.com/dawjvqyvd/image/upload/v1527481169/craftnfolkart.jpg'}}
                 style={styles.backgroundImage}>
                 <View style={styles.container}>
                     <View style={styles.title}>

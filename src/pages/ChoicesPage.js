@@ -25,7 +25,7 @@ export default class ChoicesPage extends Component {
         return (
             <LinearGradient colors={['#f4a93f','#f08433']} style={styles.LinearGradient}>
                 <View style={styles.textBoxContainer}>
-                    <Image source={require('../assets/img/logo-white.png')} />
+                    <Image source={{ uri: 'https://res.cloudinary.com/dawjvqyvd/image/upload/v1527481168/logo-white.png'}} />
                 </View>
                 <View style={styles.buttonsContainer}>
                     <TouchableOpacity style={styles.buttonStyle} onPress={this.onExhibitionsPress.bind(this)}>
