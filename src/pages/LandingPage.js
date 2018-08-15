@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import imageCacheHoc from 'react-native-image-cache-hoc';
+
+const CacheableImage = imageCacheHoc(ImageBackground);
 
 export default class LandingPage extends Component {
     onGuestPress() {
@@ -8,9 +11,10 @@ export default class LandingPage extends Component {
     }
     render() {
         return (
-            <ImageBackground
+            <CacheableImage
                 source={{ uri: 'https://res.cloudinary.com/dawjvqyvd/image/upload/v1527481169/craftnfolkart.jpg'}}
-                style={styles.backgroundImage}>
+                style={styles.backgroundImage}
+                resizeMethod="resize">
                 <View style={styles.container}>
                     <View style={styles.title}>
                         <View style={styles.titleBox}>
@@ -23,7 +27,7 @@ export default class LandingPage extends Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </ImageBackground>
+            </CacheableImage>
         ) 
     }
 }

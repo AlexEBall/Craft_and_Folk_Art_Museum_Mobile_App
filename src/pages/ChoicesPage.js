@@ -25,7 +25,10 @@ export default class ChoicesPage extends Component {
         return (
             <LinearGradient colors={['#f4a93f','#f08433']} style={styles.LinearGradient}>
                 <View style={styles.textBoxContainer}>
-                    <Image source={{ uri: 'https://res.cloudinary.com/dawjvqyvd/image/upload/v1527481168/logo-white.png'}} />
+                    <Image 
+                        style={styles.imgStyle} 
+                        source={{ uri: 'https://res.cloudinary.com/dawjvqyvd/image/upload/v1527481168/logo-white.png'}}
+                        resizeMethod="resize" />
                 </View>
                 <View style={styles.buttonsContainer}>
                     <TouchableOpacity style={styles.buttonStyle} onPress={this.onExhibitionsPress.bind(this)}>
@@ -58,6 +61,10 @@ const styles = StyleSheet.create({
         marginLeft: 30,
         marginRight: 30,
         marginBottom: 70
+    },
+    imgStyle: {
+        width: 190,
+        height: 108
     },
     choicesText: {
         fontSize: 50,
