@@ -5,7 +5,7 @@ export const fetchArtistConnectData = (floor) => {
     return (dispatch) => {
         dispatch({type: FETCHING_ARTIST_CONNECT_START})
         axios
-            .get('https://stormy-shelf-62092.herokuapp.com/api/cafamArtistConnect/floor/' + floor )
+            .get('https://young-savannah-71265.herokuapp.com/api/cafamArtistConnect/floor/' + floor )
             .then((res) => {
                 dispatch({type: RECIEVE_ARTIST_CONNECT, payload: res.data})
             })

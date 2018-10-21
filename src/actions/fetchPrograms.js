@@ -5,7 +5,7 @@ export const fetchPrograms = () => {
     return (dispatch) => {
         dispatch({type: FETCHING_PROGRAMS_START})
         axios
-            .get('https://stormy-shelf-62092.herokuapp.com/api/cafamPrograms')
+            .get('https://young-savannah-71265.herokuapp.com/api/cafamPrograms')
             .then((res) => {
                 dispatch({type: RECIEVE_PROGRAMS, payload: res.data})
             })
