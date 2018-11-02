@@ -7,7 +7,7 @@ import Spinner from '../components/Spinner';
 
 class Programs extends Component {
 
-    componentWillMount = () => {
+    componentDidMount = () => {
         this.props.fetchPrograms();
     }
 

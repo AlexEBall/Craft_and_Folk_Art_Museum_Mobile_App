@@ -18,7 +18,7 @@ const CacheableImage = imageCacheHoc(ImageBackground);
 
 class LearnMore extends Component {
 
-    componentWillMount = () => {
+    componentDidMount = () => {
         console.log('Props before calling action', this.props);
         const floor = this.props.floor;
         this.props.fetchArtistConnectData(floor);

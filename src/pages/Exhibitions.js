@@ -7,7 +7,7 @@ import Spinner from '../components/Spinner';
 
 class Exhibitions extends Component {
 
-    componentWillMount = () => {
+    componentDidMount = () => {
         this.props.fetchTourData();
     }
 

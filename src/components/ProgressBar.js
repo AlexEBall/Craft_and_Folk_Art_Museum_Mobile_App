@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, Animated } from "react-native";
 
 export default class ProgressBar extends Component {
   
-  componentWillMount() {
+  componentDidMount() {
     this.animation = new Animated.Value(this.props.progress);
   }
 
