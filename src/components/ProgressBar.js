@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import {StyleSheet, Text, View, Animated } from "react-native";
 
 export default class ProgressBar extends Component {
-  
-  componentDidMount() {
+  // for some reason this needs to be componentWillMount
+  componentWillMount() {
     this.animation = new Animated.Value(this.props.progress);
   }
 
