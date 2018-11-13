@@ -27,13 +27,11 @@ class LearnMore extends Component {
     render() {
         console.log('what are my learn more props', this.props);
         let artistData = this.props.artistData;
-        // let spin = this.props.fetching;
 
         if (artistData.length === 0) {
             return <Spinner />
         } else {
-            console.log('artist Fata', artistData);
-
+            
             return (
                 <CacheableImage 
                     style={styles.learnMoreImg}

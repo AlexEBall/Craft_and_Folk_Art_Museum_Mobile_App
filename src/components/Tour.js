@@ -46,7 +46,7 @@ export default class Tour extends Component {
 
     render() {
         const coverImage = this.props.selectedTour.coverPic;
-        console.log(this.props.selectedTour);
+
         return (
             <View style={styles.tour}>
                 <View style={styles.tourImgBox}>
@@ -70,13 +70,7 @@ export default class Tour extends Component {
 const styles = StyleSheet.create({
     tour: {
         height: 350,
-        // width: 250,
         backgroundColor: '#F08433',
-        // marginRight: 5,
-        // marginLeft: 5,
-        // marginTop: 10,
-        // marginBottom: 10,
-        // borderRadius: 10,
         display: 'flex',
         flexDirection: 'column',
         flex: 1
@@ -88,8 +82,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: null,
         width: null,
-        overflow: 'hidden',
-        // borderRadius: 10,
+        overflow: 'hidden'
     },
     tourInfoBox: {
         flex: .2,
@@ -103,12 +96,8 @@ const styles = StyleSheet.create({
         flex: .8
     },
     startBtn: {
-        // flex: 1,
         zIndex: 5,
-        // width: 30,
-        // flexDirection: 'row',
         alignSelf: 'center',
-        // justifyContent: 'space-around',
         opacity: 1,
         backgroundColor: '#fff',
         borderRadius: 50,
@@ -118,7 +107,6 @@ const styles = StyleSheet.create({
         padding: 12
     },
     startBtnDisabled: {
-        // flex: 1,
         zIndex: 5,
         opacity: .5,
         backgroundColor: '#fff',
@@ -129,7 +117,6 @@ const styles = StyleSheet.create({
         padding: 5
     },
     imgText: {
-        // display: flex
         margin: 10,
         color: 'white',
         fontSize: 28,
@@ -139,19 +126,3 @@ const styles = StyleSheet.create({
         textShadowRadius: 1,
     }
 });
-
-// <Svg height="32" width="32">
-//                             <Path d="M0 16c0 8.836 7.164 16 16 16 8.837 0 16-7.164 16-16 0-8.837-7.163-16-16-16s-16 7.163-16 16zM24 16l-8 8v-6h-8v-4h8v-6l8 8z"
-//                                 fill='#009FB7'
-//                                 stroke='#009FB7'
-//                                 stokeWidth={5}>
-//                             </Path>
-//                         </Svg>
-
-                        // <Svg height="32" width="32">
-                        //     <Path d="M0 16c0 8.836 7.164 16 16 16 8.837 0 16-7.164 16-16 0-8.837-7.163-16-16-16s-16 7.163-16 16zM24 16l-8 8v-6h-8v-4h8v-6l8 8z"
-                        //         fill='#009FB7'
-                        //         stroke='#009FB7'
-                        //         stokeWidth={5}>
-                        //     </Path>
-                        // </Svg>

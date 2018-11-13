@@ -5,7 +5,7 @@ import SelectedTour from '../components/SelectedTour';
 export default class Tour extends Component {
 
     render() {
-        console.log(this.props);
+
         return (
              <View style={styles.container}>
 
