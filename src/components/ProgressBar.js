@@ -18,7 +18,8 @@ export default class ProgressBar extends Component {
 
   componentWillUnmount() {
     Animated.timing(this.animation, {
-      toValue: 0
+      toValue: 0,
+      duration: 0
     })
   }
   
