@@ -152,6 +152,7 @@ class AudioPlayerComponent extends Component {
     }
 
     componentWillUnmount = () => {
+        // need to clear interval for android
         this.props.audioCurrentTime(0);
         this.props.audioPlaying(false);
         this.props.audioPaused(false);
