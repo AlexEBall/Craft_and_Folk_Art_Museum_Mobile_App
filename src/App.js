@@ -6,10 +6,10 @@ import logger from 'redux-logger';
 import reducers from './reducers';
 import Router from './Router';
 
+const store = createStore(reducers, applyMiddleware(ReduxThunk, logger));
+
 class App extends Component {
     render() {
-        const store = createStore(reducers, applyMiddleware(ReduxThunk, logger));
-
         return (
             <Provider store={store}>
                 <Router/>
